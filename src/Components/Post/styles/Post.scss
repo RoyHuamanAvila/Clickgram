@@ -1,3 +1,5 @@
+$white-75: rgba(255, 255, 255, 0.75);
+
 .post {
   padding: 10px 0px;
   width: 500px;
@@ -6,6 +8,7 @@
   flex-direction: column;
   margin: auto;
   gap: 5px;
+  border-bottom: 1px solid $white-75;
 
   &.dark {
     p {
@@ -87,8 +90,7 @@
 }
 
 .post-comments {
-  color: white;
-  opacity: 0.75;
+  color: $white-75
 }
 
 .post-addcomment {
