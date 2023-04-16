@@ -1,18 +1,16 @@
 import React, { useEffect } from 'react';
 import './styles/LikeButton.scss';
 import { useToggle } from '../../hooks';
-export interface LikeButtonProps { }
+export interface LikeButtonProps {
+	handleLikeCount: (active: boolean) => void
+}
 
-const LikeButton: React.FC<LikeButtonProps> = () => {
-	const { active, handleToggle } = useToggle();
+const LikeButton: React.FC<LikeButtonProps> = ({ handleLikeCount }) => {
+	const { active, handleToggle } = useToggle(false);
 
 	//Like
 	useEffect(() => {
-		if (active) {
-			console.log('like')
-		} else {
-			console.log('dislike')
-		}
+		handleLikeCount(active);
 	}, [active])
 
 	return (
