@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './styles/Post.scss';
 import { LikeButton } from '../LikeButton';
-export interface PostProps { }
+import { PostProps } from '../../interfaces';
 
-const Post: React.FC<PostProps> = () => {
-	const [likeCount, setLikeCount] = useState<number>(44077);
+const Post: React.FC<PostProps> = (post) => {
+	const { owner, likeCount, comments, content, description } = post;
+	const [likeCounter, setLikeCounter] = useState<number>(likeCount);
 
 	const handleLikeCount = (liked: boolean) => {
-		setLikeCount(liked ? likeCount + 1 : likeCount - 1)
+		setLikeCounter(liked ? likeCount + 1 : likeCount)
 	}
 
 	function formatNumber(num: number) {
@@ -19,14 +20,14 @@ const Post: React.FC<PostProps> = () => {
 			<div className="post-header">
 				<div className="post-ownerinfo">
 					<div className="ownerinfo-picture">
-						<img src="/LogoKFC.jpg" alt="" />
+						<img src={owner.picture} alt="post owner" />
 					</div>
-					<p className='ownerinfo-name'>kfc.es</p>
+					<p className='ownerinfo-name'>{owner.name}</p>
 				</div>
 				<i className="bi bi-three-dots fs-4"></i>
 			</div>
 			<div className="post-content">
-				<img src="/PostKFC.jpg" alt="" />
+				<img src={content} alt="content post" />
 			</div>
 			<div className="post-interactive">
 				<div className='post-interactive-section'>
@@ -36,9 +37,9 @@ const Post: React.FC<PostProps> = () => {
 				</div>
 				<i className="bi bi-bookmark"></i>
 			</div>
-			<p className='post-countlikes'>{formatNumber(likeCount)} Me gusta</p>
-			<p className='post-description'><span>kfc.es</span> compaltan 😡</p>
-			<p className='post-comments'>Ver los 98 comentarios</p>
+			<p className='post-countlikes'>{formatNumber(likeCounter)} Me gusta</p>
+			<p className='post-description'><span>{owner.name}</span> {description}</p>
+			<p className='post-comments'>Ver los {comments?.length} comentarios</p>
 			<p className='post-addcomment'>Agrega un comentario...</p>
 		</div >
 	);
