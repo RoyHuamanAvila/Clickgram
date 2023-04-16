@@ -1,0 +1,31 @@
+.inputcomment {
+  display: flex;
+  gap: 5px;
+
+  &.dark {
+    textarea {
+      color: white;
+    }
+  }
+
+  textarea {
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    resize: none;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  button {
+    border: 0;
+    background: transparent;
+    color: #0095f6;
+
+    &:hover {
+      color: darken($color: #0095f6, $amount: 10);
+    }
+  }
+}
