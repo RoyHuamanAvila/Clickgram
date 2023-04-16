@@ -1,11 +1,19 @@
 .inputcomment {
-  display: flex;
-  gap: 5px;
+
 
   &.dark {
     textarea {
       color: white;
     }
+  }
+
+  p {
+    white-space: pre-wrap;
+  }
+
+  .inputcomment-input {
+    display: flex;
+    gap: 5px;
   }
 
   textarea {
