@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 const useToggle = (initialState: boolean) => {
   const [active, setActive] = useState<boolean>(initialState);
 
-  const handleToggle = () => {
+  const handleToggle = useCallback(() => {
     setActive(!active);
-  };
+  }, [active]);
 
   return { active, handleToggle };
 };
