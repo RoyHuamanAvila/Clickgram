@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/Post.scss';
+import { LikeButton } from '../LikeButton';
 export interface PostProps { }
 
 const Post: React.FC<PostProps> = () => {
@@ -19,7 +20,7 @@ const Post: React.FC<PostProps> = () => {
 			</div>
 			<div className="post-interactive">
 				<div className='post-interactive-section'>
-					<i className="bi bi-heart like"></i>
+					<LikeButton />
 					<i className="bi bi-chat comments"></i>
 					<i className="bi bi-send"></i>
 				</div>

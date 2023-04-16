@@ -1,0 +1,36 @@
+.likebutton {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+}
+
+.likebutton-like {
+  color: #ff3040 !important;
+  animation: likebutton-animation;
+  animation-duration: .45s;
+  animation-timing-function: ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes likebutton-animation {
+  0% {
+    font-size: 1.5rem;
+  }
+
+  25% {
+    font-size: 1.6rem;
+  }
+
+  50% {
+    font-size: 1.45rem;
+  }
+
+  100% {
+    font-size: 1.5rem;
+  }
+}
