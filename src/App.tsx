@@ -1,5 +1,5 @@
 import './App.scss'
-import { Post } from './assets/Components/Post'
+import { Post } from './Components'
 
 function App() {
 
