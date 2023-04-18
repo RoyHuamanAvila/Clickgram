@@ -5,6 +5,7 @@ import { PostProps } from '../../interfaces';
 import { formatNumber } from '../../utils/formats';
 import { InputComment } from '../InputComment';
 import { Carousel } from '../Carousel';
+import { SavePostButton } from '../SavePostButton';
 
 const Post: React.FC<PostProps> = (post) => {
 	const { owner, likeCount, comments, contents, description } = post;
@@ -34,7 +35,7 @@ const Post: React.FC<PostProps> = (post) => {
 					<i className="bi bi-chat comments"></i>
 					<i className="bi bi-send"></i>
 				</div>
-				<i className="bi bi-bookmark"></i>
+				<SavePostButton saved={false} />
 			</div>
 			<p className='post-countlikes'>{formatNumber(likeCounter)} Me gusta</p>
 			<p className='post-description'><span>{owner.name}</span> {description}</p>
