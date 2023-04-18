@@ -9,8 +9,13 @@ export interface Comment {
 
 export interface PostProps {
   owner: User;
-  content: string;
+  contents: ContentPost[];
   likeCount: number;
   description?: string;
   comments?: Comment[];
+}
+
+export interface ContentPost {
+  url: string;
+  type: "img" | "video";
 }

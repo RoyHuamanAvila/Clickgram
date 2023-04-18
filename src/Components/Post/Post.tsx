@@ -4,9 +4,10 @@ import { LikeButton } from '../LikeButton';
 import { PostProps } from '../../interfaces';
 import { formatNumber } from '../../utils/formats';
 import { InputComment } from '../InputComment';
+import { Carousel } from '../Carousel';
 
 const Post: React.FC<PostProps> = (post) => {
-	const { owner, likeCount, comments, content, description } = post;
+	const { owner, likeCount, comments, contents, description } = post;
 	const [likeCounter, setLikeCounter] = useState<number>(likeCount);
 
 	const handleLikeCount = (liked: boolean) => {
@@ -25,7 +26,7 @@ const Post: React.FC<PostProps> = (post) => {
 				<i className="bi bi-three-dots fs-5"></i>
 			</div>
 			<div className="post-content">
-				<img src={content} alt="content post" />
+				<Carousel contents={contents} id={owner.name} />
 			</div>
 			<div className="post-interactive">
 				<div className='post-interactive-section'>
