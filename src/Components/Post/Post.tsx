@@ -33,12 +33,11 @@ const Post: React.FC<PostProps> = (post) => {
 			<div className="post-content">
 				<Carousel contents={contents} id={owner.name} />
 			</div>
-			<PostInteractive likeButton={{ handleLikePost, liked }} />
-			<p className='post-countlikes'>{formatNumber(likeCounter)} Me gusta</p>
+			<PostInteractive likeButton={{ handleLikePost, liked, likeCounter }} />
 			<p className='post-description'><span>{owner.name}</span> {description}</p>
 			<p className='post-comments'>Ver los {comments?.length} comentarios</p>
 			<InputComment />
-			<PostModal postData={post} likeButton={{ handleLikePost, liked }} />
+			<PostModal postData={post} likeButton={{ handleLikePost, liked, likeCounter }} />
 		</div >
 	);
 };

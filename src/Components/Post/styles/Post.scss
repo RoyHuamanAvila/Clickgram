@@ -35,21 +35,6 @@ $white-75: rgba(255, 255, 255, 0.75);
   }
 }
 
-.post-interactive {
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.5rem;
-
-  .post-interactive-section {
-    display: flex;
-    gap: 10px;
-  }
-}
-
-.post-countlikes {
-  font-weight: 400;
-}
-
 .post-description {
   span {
     font-weight: 600;
