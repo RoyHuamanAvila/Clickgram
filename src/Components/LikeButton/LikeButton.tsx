@@ -4,6 +4,7 @@ import { useToggle } from '../../hooks';
 export interface LikeButtonProps {
 	handleLikePost: () => void;
 	liked: boolean;
+	likeCounter: number;
 }
 
 const LikeButton: React.FC<LikeButtonProps> = ({ handleLikePost, liked }) => {
