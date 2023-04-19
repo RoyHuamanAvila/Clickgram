@@ -1,6 +1,8 @@
+$white-25: rgba(255, 255, 255, 0.25);
+
 .postmodal {}
 
-.modal-content.dark {
+.modal-content {
   flex-direction: row;
 
   &.dark {
@@ -8,8 +10,32 @@
     color: white;
   }
 
+  .modal-header {
+    border-bottom: 1px solid $white-25;
+  }
+
+  .modal-comments {
+    border-bottom: 1px solid $white-25;
+    padding: 0.5rem 1rem;
+    flex-grow: 1;
+  }
+
+  .modal-interactive {
+    border-bottom: 1px solid $white-25;
+    padding: 0.5rem 1rem;
+    justify-self: flex-end;
+  }
+
+  .modal-input {
+    padding: 1rem;
+    justify-self: flex-end;
+  }
+
   .modal-content-section {
     aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
 
     img {
       width: 100%;
