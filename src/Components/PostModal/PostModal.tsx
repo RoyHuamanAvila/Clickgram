@@ -6,6 +6,7 @@ import { Carousel } from '../Carousel';
 import { PostInteractive } from '../PostInteractive';
 import { LikeButtonProps } from '../LikeButton/LikeButton';
 import { InputComment } from '../InputComment';
+import { Comment } from '../Comment';
 export interface PostModalProps {
 	postData: PostProps;
 	likeButton: LikeButtonProps;
@@ -27,7 +28,7 @@ const PostModal: React.FC<PostModalProps> = ({ postData, likeButton }) => {
 								<PostHeader owner={owner} />
 							</div>
 							<div className="modal-comments">
-								{description}
+								<Comment owner={owner} content={description} />
 							</div>
 							<div className="modal-interactive">
 								<PostInteractive likeButton={likeButton} />
