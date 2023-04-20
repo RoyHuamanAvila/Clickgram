@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import './styles/Post.scss';
 import { PostProps } from '../../interfaces';
-import { formatNumber } from '../../utils/formats';
 import { InputComment } from '../InputComment';
 import { Carousel } from '../Carousel';
 import { PostModal } from '../PostModal';
