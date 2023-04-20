@@ -16,15 +16,11 @@ const PostModal: React.FC<PostModalProps> = ({ postData, likeButton }) => {
 
 	return (
 		<>
-			<button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#${owner.name}modal`}>
-				Launch demo modal
-			</button>
-
 			<div className="modal modal-xl fade" id={`${owner.name}modal`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div className="modal-dialog modal-dialog-centered">
 					<div className="modal-content dark">
 						<div className="modal-content-section">
-							<Carousel contents={contents} id={owner.name} />
+							<Carousel contents={contents} id={`${owner.name}carouselmodal`} />
 						</div>
 						<div className="modal-content-section">
 							<div className="modal-header">

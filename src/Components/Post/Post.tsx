@@ -35,7 +35,10 @@ const Post: React.FC<PostProps> = (post) => {
 			</div>
 			<PostInteractive likeButton={{ handleLikePost, liked, likeCounter }} />
 			<p className='post-description'><span>{owner.name}</span> {description}</p>
-			<p className='post-comments'>Ver los {comments?.length} comentarios</p>
+			<p className='post-comments'>
+				Ver los {comments?.length} comentarios
+				<button type="button" className="post-buttonmodal" data-bs-toggle="modal" data-bs-target={`#${owner.name}modal`} title='View More' />
+			</p>
 			<InputComment />
 			<PostModal postData={post} likeButton={{ handleLikePost, liked, likeCounter }} />
 		</div >
