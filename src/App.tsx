@@ -1,15 +1,10 @@
 import './App.scss'
-import { Post } from './Components'
-import { Posts } from './Data/Posts'
+import { Home } from './Pages'
 
 function App() {
-  const posts = Posts;
-
   return (
     <div className="App">
-      {
-        posts.map((post, index) => <Post key={index} {...post} />)
-      }
+      <Home />
     </div>
   )
 }
