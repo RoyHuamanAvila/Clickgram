@@ -1,4 +1,4 @@
-$white-50: rgba(255, 255, 255, 0.5);
+$white-25: rgba(255, 255, 255, 0.25);
 
 .post {
   padding: 10px 0px;
@@ -8,7 +8,7 @@ $white-50: rgba(255, 255, 255, 0.5);
   flex-direction: column;
   margin: auto;
   gap: 5px;
-  border-bottom: 1px solid $white-50;
+  border-bottom: 1px solid $white-25;
 
   &.dark {
     p {
@@ -42,7 +42,7 @@ $white-50: rgba(255, 255, 255, 0.5);
 }
 
 .post-comments {
-  color: $white-50 !important;
+  color: $white-25 !important;
   align-self: flex-start;
   position: relative;
 }
