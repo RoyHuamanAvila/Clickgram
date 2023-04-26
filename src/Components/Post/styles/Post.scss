@@ -1,3 +1,5 @@
+@use 'src/scss/sizes';
+
 $white-25: rgba(255, 255, 255, 0.25);
 
 .post {
@@ -9,6 +11,10 @@ $white-25: rgba(255, 255, 255, 0.25);
   margin: auto;
   gap: 5px;
   border-bottom: 1px solid $white-25;
+
+  .userpicture {
+    @include sizes.setWidthAndHeight(32px);
+  }
 
   &.dark {
     p {
