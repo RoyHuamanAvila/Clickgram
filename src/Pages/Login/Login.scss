@@ -1,0 +1,80 @@
+@use 'src/scss/colors';
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 1rem;
+  width: max-content;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid colors.$gray-25;
+  min-width: 300px;
+  padding: 3rem 2rem 1rem 2rem;
+
+  .login-logo {
+    height: 2.5rem;
+    width: auto;
+    margin-bottom: 2rem;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+
+    input[type=text] {
+      padding: 0.25rem;
+      border-radius: 0.25rem;
+      background: transparent;
+      border: 1px solid colors.$gray-25;
+
+      &:focus {
+        outline: 1px solid colors.$gray;
+      }
+
+      &::placeholder {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .login-btn-submit {
+    background-color: colors.$blue;
+    color: colors.$white;
+    border: 0;
+    border-radius: 0.5rem;
+    padding: 0.15rem 0;
+    margin-top: 0.5rem;
+  }
+
+  .login-rememberPassword {
+    font-size: 0.75rem;
+    color: colors.$blue-25;
+    padding-top: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.toRegister-container {
+  color: colors.$white;
+  border: 1px solid colors.$gray-25;
+  padding: 1rem 2rem;
+  display: flex;
+
+  .btn-toRegister {
+    border: 0;
+    background: transparent;
+    color: colors.$blue;
+  }
+
+  p {
+    margin: 0;
+  }
+}

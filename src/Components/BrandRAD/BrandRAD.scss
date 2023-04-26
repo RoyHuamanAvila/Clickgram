@@ -1,0 +1,12 @@
+@use 'src/scss/sizes';
+
+.brand-container {
+  @include sizes.setWidthAndHeight(60px);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  img {
+    @include sizes.setWidthAndHeight(100%);
+  }
+}
