@@ -1,3 +1,5 @@
+@use 'src/scss/colors';
+
 .post-interactive {
 
   .post-interactive-buttons {
@@ -15,4 +17,12 @@
   .post-countlikes {
     font-weight: 600;
   }
+
+}
+
+.btn-showcomments {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: colors.$white;
 }

@@ -31,7 +31,7 @@ const PostModal: React.FC<PostModalProps> = ({ postData, likeButton }) => {
 								<Comment owner={owner} content={description} />
 							</div>
 							<div className="modal-interactive">
-								<PostInteractive likeButton={likeButton} />
+								<PostInteractive likeButton={likeButton} idPost={owner.name} />
 							</div>
 							<div className="modal-input">
 								<InputComment />
