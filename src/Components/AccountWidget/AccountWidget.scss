@@ -1,13 +1,20 @@
 @use 'src/scss/colors';
+@use 'src/scss/sizes';
 
 .AccountWidget {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1.5rem;
 
   .AccountWidget-ownerinfo {
     display: flex;
+    align-items: center;
     gap: 1rem;
+  }
+
+  .userpicture {
+    @include sizes.setWidthAndHeight(56px);
   }
 }
 
