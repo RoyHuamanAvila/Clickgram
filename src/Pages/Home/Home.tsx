@@ -20,6 +20,7 @@ const Home: React.FC<HomeProps> = () => {
 					</div>
 					<div>
 						<AccountWidget owner={{ name: 'User', picture: '/RoyAndresDev.webp' }} />
+						<p className='copyright'>© 2023 CLICKGRAM FROM ROYANDRESDEV</p>
 					</div>
 				</div>
 			</section>

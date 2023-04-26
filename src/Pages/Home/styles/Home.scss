@@ -1,3 +1,5 @@
+@use 'src/scss/colors';
+
 .home {
   box-sizing: border-box;
 
@@ -13,4 +15,10 @@
       gap: 5rem;
     }
   }
+}
+
+.copyright {
+  padding-top: 1rem;
+  color: colors.$gray-25;
+  font-size: 0.75rem;
 }
