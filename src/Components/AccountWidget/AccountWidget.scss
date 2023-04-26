@@ -1,0 +1,32 @@
+@use 'src/scss/colors';
+
+.AccountWidget {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  .AccountWidget-ownerinfo {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.btn-changeaccount {
+  border: 0;
+  background-color: transparent;
+  color: colors.$blue;
+}
+
+.ownerinfo-names {
+  line-height: 1.2rem;
+}
+
+.ownerinfo-username {
+  color: colors.$white;
+  margin: 0;
+}
+
+.ownerinfo-fullname {
+  color: colors.$gray;
+  margin: 0;
+}
