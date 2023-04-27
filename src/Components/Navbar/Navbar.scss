@@ -57,9 +57,33 @@
     align-items: flex-start;
   }
 
+  .navbar-items-container {
+    width: 100%;
+  }
+
   .navbar-item {
-    width: auto;
+    width: 100%;
     justify-content: flex-start;
+    border-radius: 0.5rem;
+    padding-left: 0.5rem;
+
+    i {
+      transform: scale(1);
+      transition: 0.15s;
+    }
+
+    &:hover {
+      background-color: colors.$gray-op-15;
+      transition: 0.25s background-color;
+      color: colors.$white;
+
+      i {
+        transform: scale(1.1);
+        transition: 0.15s;
+      }
+    }
+
+
 
     span {
       display: inline;
