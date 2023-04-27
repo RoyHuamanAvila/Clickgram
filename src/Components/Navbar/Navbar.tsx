@@ -10,7 +10,7 @@ export const NavbarContainer: React.FC<NavbarContainerProps> = ({ children }) =>
 	return (
 		<nav className='navbar-container'>
 			<img className='navbar-logo' src="/Clickgram-Icon-OnlyText.webp" alt="Navbar logo" />
-			<div>
+			<div className='navbar-items-container'>
 				{children}
 			</div>
 		</nav>
