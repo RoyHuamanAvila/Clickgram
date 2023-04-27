@@ -8,6 +8,11 @@
   background-color: black;
   bottom: 0;
   z-index: 5;
+  display: flex;
+}
+
+.navbar-logo {
+  display: none;
 }
 
 .navbar-item {
@@ -18,4 +23,49 @@
   height: 48px;
   width: 48px;
   font-size: 24px;
+  text-decoration: none;
+
+  span {
+    display: none;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .navbar-container {
+    width: 72px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding: 0.75rem;
+    flex-direction: column;
+    border-right: 1px solid colors.$gray-25;
+  }
+}
+
+@media (min-width: 1260px) {
+  .navbar-logo {
+    display: block;
+    height: 2rem;
+    width: auto;
+    margin: 2rem 0;
+  }
+
+  .navbar-container {
+    width: 244px;
+    padding: 1rem;
+    align-items: flex-start;
+  }
+
+  .navbar-item {
+    width: auto;
+    justify-content: flex-start;
+
+    span {
+      display: inline;
+      padding-left: 0.5rem;
+      font-size: 1rem;
+      font-weight: bolder;
+    }
+  }
 }

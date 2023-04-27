@@ -7,7 +7,14 @@ export interface NavbarContainerProps {
 }
 
 export const NavbarContainer: React.FC<NavbarContainerProps> = ({ children }) => {
-	return <nav className='navbar-container'>{children}</nav>
+	return (
+		<nav className='navbar-container'>
+			<img className='navbar-logo' src="/Clickgram-Icon-OnlyText.webp" alt="Navbar logo" />
+			<div>
+				{children}
+			</div>
+		</nav>
+	)
 }
 
 export interface NavbarItemProps {
@@ -16,7 +23,11 @@ export interface NavbarItemProps {
 	toPath: string;
 }
 
-export const NavbarItem: React.FC<NavbarItemProps> = ({ children, toPath }) => {
-	return <NavLink to={toPath} className="navbar-item">{children}</NavLink>
+export const NavbarItem: React.FC<NavbarItemProps> = ({ children, toPath, label }) => {
+	return (
+		<NavLink to={toPath} className="navbar-item">
+			{children} <span>{label}</span>
+		</NavLink>
+	)
 }
 

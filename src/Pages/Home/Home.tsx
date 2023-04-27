@@ -4,6 +4,7 @@ import { Posts } from '../../Data/Posts';
 import { Post } from '../../Components';
 import { NavbarContainer, NavbarItem } from '../../Components/Navbar';
 import { Header } from '../../Components/Header';
+import { AccountWidget } from '../../Components/AccountWidget';
 export interface HomeProps { }
 
 const Home: React.FC<HomeProps> = () => {
@@ -21,6 +22,9 @@ const Home: React.FC<HomeProps> = () => {
 					<i className="bi bi-house-door-fill"></i>
 				</NavbarItem>
 			</NavbarContainer>
+			<div className="home-accountinfo">
+				<AccountWidget owner={{ name: 'User', picture: '/RoyAndresDev.webp' }} />
+			</div>
 		</div >
 	);
 };

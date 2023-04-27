@@ -32,7 +32,7 @@ const Post: React.FC<PostProps> = (post) => {
 			<div className="post-content">
 				<Carousel contents={contents} id={owner.name} />
 			</div>
-			<div className='px-3'>
+			<div className='px-3 px-md-0'>
 				<PostInteractive likeButton={{ handleLikePost, liked, likeCounter }} idPost={owner.name} />
 				<p className='post-description'><span>{owner.name}</span> {description}</p>
 				<p className='post-comments'>
