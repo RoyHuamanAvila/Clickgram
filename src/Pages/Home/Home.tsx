@@ -2,28 +2,23 @@ import React from 'react';
 import './styles/Home.scss';
 import { Posts } from '../../Data/Posts';
 import { Post } from '../../Components';
-import { Sidebar } from '../../Components/Sidebar';
-import { AccountWidget } from '../../Components/AccountWidget';
+import { NavbarContainer, NavbarItem } from '../../Components/Navbar';
 export interface HomeProps { }
 
 const Home: React.FC<HomeProps> = () => {
 	const posts = Posts;
 	return (
 		<div className='home'>
-			<Sidebar />
-			<section>
-				<div>
-					<div className='posts-container'>
-						{
-							posts.map((post, index) => <Post key={index} {...post} />)
-						}
-					</div>
-					<div>
-						<AccountWidget owner={{ name: 'User', picture: '/RoyAndresDev.webp' }} />
-						<p className='copyright'>© 2023 CLICKGRAM FROM ROYANDRESDEV</p>
-					</div>
-				</div>
-			</section>
+			<div className="home-posts">
+				{
+					posts.map(post => <Post {...post} />)
+				}
+			</div>
+			<NavbarContainer>
+				<NavbarItem label='Home' toPath='/'>
+					<i className="bi bi-house-door-fill"></i>
+				</NavbarItem>
+			</NavbarContainer>
 		</div >
 	);
 };

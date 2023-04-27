@@ -4,7 +4,7 @@ $white-25: rgba(255, 255, 255, 0.25);
 
 .post {
   padding: 10px 0px;
-  width: 500px;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@ $white-25: rgba(255, 255, 255, 0.25);
 }
 
 .post-content {
-  width: 500px;
+  width: 100%;
   position: relative;
   aspect-ratio: 1/1;
 
