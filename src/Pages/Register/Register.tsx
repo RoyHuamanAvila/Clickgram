@@ -1,6 +1,7 @@
 import React from 'react';
 import './Register.scss';
 import { BrandRAD } from '../../Components/BrandRAD';
+import { Link } from 'react-router-dom';
 
 export type RegisterProps = {
 }
@@ -21,7 +22,7 @@ const Register: React.FC<RegisterProps> = () => {
 			</div>
 			<div className='toLogin-container'>
 				<p>¿Ya tienes cuenta?</p>
-				<button className='btn-toRegister'>Inicia Sesion</button>
+				<Link to='/login' className='link-toLogin'>Inicia Sesion</Link>
 			</div>
 			<BrandRAD />
 		</div>

@@ -66,10 +66,10 @@
   border: 1px solid colors.$gray-25;
   padding: 1rem 2rem;
   display: flex;
+  gap: 0.5rem;
 
-  .btn-toRegister {
-    border: 0;
-    background: transparent;
+  .link-toLogin {
+    text-decoration: none;
     color: colors.$blue;
   }
 

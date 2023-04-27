@@ -1,6 +1,7 @@
 import React from 'react';
 import './Login.scss';
 import { BrandRAD } from '../../Components/BrandRAD';
+import { Link } from 'react-router-dom'
 
 export type LoginProps = {
 }
@@ -19,7 +20,7 @@ const Login: React.FC<LoginProps> = () => {
 			</div>
 			<div className='toRegister-container'>
 				<p>¿No tienes cuenta?</p>
-				<button className='btn-toRegister'>Registrate</button>
+				<Link to='/register' className='link-toRegister'>Registrate</Link>
 			</div>
 			<BrandRAD />
 		</div>
