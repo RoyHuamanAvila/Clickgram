@@ -2,6 +2,7 @@
 
 .home {
   box-sizing: border-box;
+  width: 100%;
 
   .home-posts {
     margin-top: 4rem;
@@ -13,4 +14,40 @@
   padding-top: 1rem;
   color: colors.$gray-25;
   font-size: 0.75rem;
+}
+
+.home-accountinfo {
+  display: none;
+}
+
+
+@media (min-width: 768px) {
+  .home {
+    .home-posts {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (min-width: 1150px) {
+  .home {
+    display: flex;
+    width: calc(100% - 72px);
+    margin-left: auto;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 4rem;
+  }
+
+  .home-accountinfo {
+    display: block;
+  }
+
+}
+
+@media (min-width: 1260px) {
+  .home {
+    width: calc(100% - 244px);
+  }
 }
