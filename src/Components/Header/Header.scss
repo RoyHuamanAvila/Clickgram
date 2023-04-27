@@ -1,0 +1,18 @@
+@use 'src/scss/colors';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 56px;
+  width: 100%;
+  z-index: 5;
+  background-color: black;
+  border-bottom: 1px solid colors.$gray-25;
+  padding: 1rem;
+
+  .header-logo {
+    height: 1.5rem;
+    width: auto;
+  }
+}
