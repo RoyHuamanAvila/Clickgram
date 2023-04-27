@@ -1,14 +1,18 @@
 import './App.scss'
-import { Home } from './Pages'
-import { Login } from './Pages/Login'
-import { Register } from './Pages/Register'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Home, Login, Register } from './Pages'
+import PrivateRoute from './Routes/PrivateRoute'
+
+const router = createBrowserRouter([
+  { path: '/', element: <PrivateRoute Component={<Home />} isAuthenticated={false} /> },
+  { path: '/login', element: <Login /> },
+  { path: '/register', element: <Register /> },
+])
 
 function App() {
   return (
     <div className="App">
-      {/* <Home /> */}
-      {/* <Login /> */}
-      <Register />
+      <RouterProvider router={router} />
     </div>
   )
 }
