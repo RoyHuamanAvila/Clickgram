@@ -1,0 +1,21 @@
+@use 'src/scss/colors';
+
+.navbar-container {
+  position: fixed;
+  height: 48px;
+  width: 100%;
+  border-top: 1px solid colors.$gray-25;
+  background-color: black;
+  bottom: 0;
+  z-index: 5;
+}
+
+.navbar-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: colors.$white;
+  height: 48px;
+  width: 48px;
+  font-size: 24px;
+}

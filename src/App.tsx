@@ -4,7 +4,7 @@ import { Home, Login, Register } from './Pages'
 import PrivateRoute from './Routes/PrivateRoute'
 
 const router = createBrowserRouter([
-  { path: '/', element: <PrivateRoute Component={<Home />} isAuthenticated={false} /> },
+  { path: '/', element: <PrivateRoute Component={<Home />} isAuthenticated={true} /> },
   { path: '/login', element: <Login /> },
   { path: '/register', element: <Register /> },
 ])
