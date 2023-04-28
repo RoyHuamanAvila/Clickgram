@@ -4,11 +4,13 @@ import { BrandRAD } from '../../Components/BrandRAD';
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { RegisterAuthDto } from '../../interfaces/dto';
 
 export type RegisterProps = {
+	handleRegister: (userObject: RegisterAuthDto) => Promise<void>
 }
 
-const initialValues = {
+const initialValues: RegisterAuthDto = {
 	email: '',
 	fullname: '',
 	username: '',
@@ -16,7 +18,7 @@ const initialValues = {
 }
 
 
-const Register: React.FC<RegisterProps> = () => {
+const Register: React.FC<RegisterProps> = ({ handleRegister }) => {
 
 	const formik = useFormik({
 		initialValues,
@@ -27,8 +29,7 @@ const Register: React.FC<RegisterProps> = () => {
 			password: Yup.string().required('Ingresa una contraseña'),
 		}),
 		onSubmit: (values) => {
-			formik.handleReset('');
-			alert(JSON.stringify(values, null, 2))
+			handleRegister(values);
 		}
 	})
 
