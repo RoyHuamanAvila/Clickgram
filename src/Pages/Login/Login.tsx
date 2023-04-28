@@ -4,20 +4,22 @@ import { BrandRAD } from '../../Components/BrandRAD';
 import { Link } from 'react-router-dom'
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
+import { LoginAuthDto } from '../../interfaces/dto';
 
 export type LoginProps = {
+	handleLogin: (userObject: LoginAuthDto) => void
 }
 
-const initialValues = {
+const initialValues: LoginAuthDto = {
 	email: '',
 	password: ''
 }
 
-const Login: React.FC<LoginProps> = () => {
+const Login: React.FC<LoginProps> = ({ handleLogin }) => {
 	const formik = useFormik({
 		initialValues,
 		onSubmit: (values) => {
-
+			handleLogin(values)
 		},
 		validationSchema: Yup.object({
 			email: Yup.string().email('Ingresa un email válido').required('Ingresa tu email'),
@@ -29,7 +31,7 @@ const Login: React.FC<LoginProps> = () => {
 		<div className='login-page'>
 			<div className='login'>
 				<img className='login-logo' src="/Clickgram-Icon-OnlyText.webp" alt="Logo Clickgram" />
-				<form className='login-form'>
+				<form className='login-form' onSubmit={formik.handleSubmit}>
 					<input
 						type="text"
 						title='email'
@@ -50,7 +52,7 @@ const Login: React.FC<LoginProps> = () => {
 						value={formik.values.password}
 					/>
 					<p className='error-message'>{formik.errors.password}</p>
-					<button className='login-btn-submit'>Iniciar Sesion</button>
+					<button type='submit' className='login-btn-submit'>Iniciar Sesion</button>
 				</form>
 				<a className='login-rememberPassword'>¿Olvidaste tu contraseña?</a>
 			</div>
