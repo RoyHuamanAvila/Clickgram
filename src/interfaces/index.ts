@@ -1,3 +1,14 @@
+export interface UserLogged {
+  _id: string;
+  email: string;
+  username: string;
+  fullname: string;
+  password: string;
+  name: string;
+  picture: string;
+  __v: number;
+}
+
 export interface User {
   name: string;
   picture: string;
