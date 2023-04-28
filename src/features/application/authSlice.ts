@@ -1,19 +1,41 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { UserLogged } from "../../interfaces";
 import { RootState } from "../../app/store";
-import { LoginAuthDto } from "../../interfaces/dto";
-import axios from "axios";
+import { LoginAuthDto, RegisterAuthDto } from "../../interfaces/dto";
+import axios, { AxiosError } from "axios";
+import { toast } from "sonner";
 
 export const axiosLogin = createAsyncThunk(
   "auth/login",
   async (userObject: LoginAuthDto) => {
-    const response = await axios.post(
-      `http://localhost:3000/auth/login`,
-      userObject
-    );
-    const data = await response.data;
+    try {
+      const response = await axios.post(
+        `http://localhost:3000/auth/login`,
+        userObject
+      );
+      const data = await response.data;
+      return data;
+    } catch (error: any) {
+      toast.error(error.response.data.message);
+      throw new Error(error.response.data.message);
+    }
+  }
+);
 
-    return data;
+export const axiosRegister = createAsyncThunk(
+  "auth/register",
+  async (userObject: RegisterAuthDto) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:3000/auth/register`,
+        userObject
+      );
+      const data = await response.data;
+      return data;
+    } catch (error: any) {
+      toast.error(error.response.data.message);
+      throw new Error(error.response.data.message);
+    }
   }
 );
 export interface AuthState {
