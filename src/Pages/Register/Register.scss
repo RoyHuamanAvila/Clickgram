@@ -10,6 +10,11 @@
   justify-content: center;
 }
 
+.error-message {
+  color: colors.$error;
+  margin-bottom: 0.25rem 0;
+}
+
 .register {
   display: flex;
   flex-direction: column;
@@ -34,14 +39,16 @@
   .register-form {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
     width: 100%;
 
-    input[type=text] {
+    input[type=text],
+    input[type=email],
+    input[type=password] {
       padding: 0.25rem;
       border-radius: 0.25rem;
       background: transparent;
       border: 1px solid colors.$gray-25;
+      color: colors.$white;
 
       &:focus {
         outline: 1px solid colors.$gray;
