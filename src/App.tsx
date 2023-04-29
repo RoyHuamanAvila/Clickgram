@@ -8,9 +8,10 @@ import { getToken } from './features/application/authSlice'
 import LoginContainer from './Pages/Login/LoginContainer'
 import RegisterContainer from './Pages/Register/RegisterContainer'
 import { Toaster } from 'sonner'
+import { axiosGetUser } from './features/user/userSlice'
 
 function App() {
-  const isAuthenticated = useAppSelector((state) => state.application.isAuthenticated);
+  const { isAuthenticated, user } = useAppSelector((state) => state.application);
   const dispatch = useAppDispatch();
 
   const router = createBrowserRouter([
@@ -22,6 +23,10 @@ function App() {
   useEffect(() => {
     dispatch(getToken());
   }, [])
+
+  useEffect(() => {
+    if (isAuthenticated) dispatch(axiosGetUser(user?._id!))
+  }, [isAuthenticated])
 
   return (
     <div className="App">

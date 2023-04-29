@@ -7,6 +7,10 @@ const useToggle = (initialState: boolean) => {
     setActive((prevActive) => !prevActive);
   }, []);
 
+  const handleSetActive = (activate: boolean) => {
+    setActive(activate);
+  };
+
   const executeOnToggle = useCallback(
     (callback: (active: boolean) => void) => {
       callback(active);
@@ -14,7 +18,7 @@ const useToggle = (initialState: boolean) => {
     [active]
   );
 
-  return { active, handleToggle, executeOnToggle };
+  return { active, handleToggle, handleSetActive, executeOnToggle };
 };
 
 export default useToggle;

@@ -2,6 +2,7 @@ import React from 'react';
 import './Suggestions.scss';
 import { User } from '../../interfaces';
 import { UserPicture } from '../UserPicture';
+import ButtonFollowContainer from '../Buttons/ButtonFollow/ButtonFollowContainer';
 
 export type SuggestionsProps = {
 	users: User[];
@@ -29,7 +30,7 @@ const SuggestionItem: React.FC<SuggestionItemProps> = ({ user }) => (
 				<p className='suggestionitem-fullname'>{user.fullname}</p>
 			</div>
 		</div>
-		<button className='sug-item-btn'>Seguir</button>
+		<ButtonFollowContainer idUser={user?._id!} username={user.username} />
 	</div>
 )
 
