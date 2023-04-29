@@ -1,0 +1,9 @@
+@use 'src/scss/sizes';
+
+.Profile {}
+
+.Profile-UserContainer {
+  .userpicture {
+    @include sizes.setWidthAndHeight(150px)
+  }
+}

@@ -1,19 +1,19 @@
 @use 'src/scss/colors';
 
 .suggestions-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
   .title {
     color: colors.$white;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    width: max-content;
   }
 
-  .suggestionsitems-container {
-    min-width: 470px;
-    border: 1px solid colors.$gray-25;
-  }
+}
+
+.suggestionsitems-container {
+  width: 100%;
+  border: 1px solid colors.$gray-25;
 }
 
 .suggestionitem {
@@ -37,5 +37,11 @@
 
   .suggestionitem-fullname {
     color: colors.$gray;
+  }
+}
+
+@media screen and (min-width:470px) {
+  .suggestions-container {
+    width: 470px;
   }
 }

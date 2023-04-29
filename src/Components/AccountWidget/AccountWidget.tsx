@@ -13,7 +13,7 @@ const AccountWidget: React.FC<AccountWidgetProps> = ({ owner }) => {
 	return (
 		<div className='AccountWidget'>
 			<div className="AccountWidget-ownerinfo">
-				<UserPicture picture={owner.picture} />
+				<UserPicture picture={owner.picture} username='royandresdev' />
 				<div className='ownerinfo-names'>
 					<p className='ownerinfo-username'>{user?.username}</p>
 					<p className='ownerinfo-fullname'>{user?.fullname}</p>
