@@ -20,6 +20,13 @@
   display: none;
 }
 
+@media screen and (min-width: 470px) {
+  .home {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+  }
+}
 
 @media (min-width: 768px) {
   .home {
@@ -31,23 +38,8 @@
 }
 
 @media (min-width: 1150px) {
-  .home {
-    display: flex;
-    width: calc(100% - 72px);
-    margin-left: auto;
-    justify-content: center;
-    margin-top: 2rem;
-    gap: 4rem;
-  }
-
   .home-accountinfo {
     display: block;
   }
 
-}
-
-@media (min-width: 1260px) {
-  .home {
-    width: calc(100% - 244px);
-  }
 }

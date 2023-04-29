@@ -12,18 +12,12 @@ const Home: React.FC<HomeProps> = () => {
 	const posts = Posts;
 	return (
 		<div className='home'>
-			<Header />
 			<SuggestionContainer />
 			{/* <div className="home-posts">
 				{
 					posts.map(post => <Post {...post} />)
 				}
 			</div> */}
-			<NavbarContainer>
-				<NavbarItem label='Home' toPath='/'>
-					<i className="bi bi-house-door-fill"></i>
-				</NavbarItem>
-			</NavbarContainer>
 			<div className="home-accountinfo">
 				<AccountWidget owner={{ fullname: 'User', picture: '', username: 'royandresdev' }} />
 			</div>

@@ -1,0 +1,26 @@
+.PagesContainer {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+
+}
+
+.PagesContainer-content {
+  margin-top: 56px;
+  min-height: calc(100vh - 56px);
+}
+
+@media screen and (min-width: 768px) {
+  .PagesContainer-content {
+    margin-top: 2rem;
+    min-height: 100vh;
+    margin-left: auto;
+    width: calc(100% - 72px);
+  }
+}
+
+@media screen and (min-width: 1260px) {
+  .PagesContainer-content {
+    width: calc(100% - 244px);
+  }
+}
