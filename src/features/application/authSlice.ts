@@ -14,6 +14,7 @@ export const axiosLogin = createAsyncThunk(
         userObject
       );
       const data = await response.data;
+      localStorage.setItem("token", data.token);
       return data;
     } catch (error: any) {
       toast.error(error.response.data.message);

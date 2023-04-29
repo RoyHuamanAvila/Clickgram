@@ -5,8 +5,8 @@ export interface UserLogged {
   fullname: string;
   password: string;
   picture: string;
-  follows: User[];
-  followers: User[];
+  follows: string[];
+  followers: string[];
   __v: number;
 }
 
