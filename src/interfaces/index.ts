@@ -4,13 +4,16 @@ export interface UserLogged {
   username: string;
   fullname: string;
   password: string;
-  name: string;
   picture: string;
+  follows: User[];
+  followers: User[];
   __v: number;
 }
 
 export interface User {
-  name: string;
+  _id?: string;
+  fullname: string;
+  username: string;
   picture: string;
 }
 

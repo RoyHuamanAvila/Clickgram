@@ -7,7 +7,9 @@ export interface UserPictureProps {
 const UserPicture: React.FC<UserPictureProps> = ({ picture }) => {
 	return (
 		<div className="userpicture">
-			<img src={picture} alt="User Picture" />
+			{
+				picture && <img src={picture} alt="User Picture" />
+			}
 		</div>
 	);
 };
