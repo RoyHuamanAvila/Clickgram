@@ -9,8 +9,8 @@ import RegisterContainer from './Pages/Register/RegisterContainer'
 import { Toaster } from 'sonner'
 import { axiosGetUser } from './features/user/userSlice'
 import { PagesContainer } from './Pages/PagesContainer'
-import { Profile } from './Pages/Profile'
 import PrivateRoute from './Routes/PrivateRoute'
+import ProfileContainer from './Pages/Profile/ProfileContainer'
 
 function App() {
   const { isAuthenticated, user } = useAppSelector((state) => state.application);
@@ -20,7 +20,7 @@ function App() {
     {
       element: <PrivateRoute Component={<PagesContainer />} isAuthenticated={isAuthenticated} />, children: [
         { path: '/', element: <Home /> },
-        { path: '/:username', element: <Profile /> }
+        { path: '/:username', element: <ProfileContainer /> }
       ]
     },
     { path: '/login', element: <LoginContainer /> },
