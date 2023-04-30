@@ -1,9 +1,60 @@
 @use 'src/scss/sizes';
+@use 'src/scss/colors';
 
-.Profile {}
+.Profile {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  color: colors.$white;
+  max-width: 935px;
+}
 
 .Profile-UserContainer {
-  .userpicture {
-    @include sizes.setWidthAndHeight(150px)
+  display: flex;
+  width: 100%;
+  position: relative;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid colors.$gray-25;
+
+  .userpicture-container {
+    flex-grow: 1;
+
+
+    .userpicture {
+      margin: auto;
+      @include sizes.setWidthAndHeight(150px)
+    }
+  }
+
+  .usercontainer-user {
+    flex-grow: 2;
+
+    .user-stats {
+      display: flex;
+      padding-right: 10rem;
+
+      p {
+        flex-grow: 1;
+        font-size: 1rem;
+
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .user-username {
+      font-size: 1.5rem;
+    }
+
+    .user-fullname {
+      font-size: 1rem;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .user-description {
+      white-space: pre-wrap;
+    }
   }
 }
