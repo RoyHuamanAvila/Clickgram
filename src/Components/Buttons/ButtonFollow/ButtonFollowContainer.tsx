@@ -16,18 +16,22 @@ const ButtonFollowContainer: FC<ButtonFollowContainerProps> = ({ idUser, usernam
   const { loading, setLoadingState } = useLoading(false);
 
   const handleFollow = async () => {
-    handleToggleFollow();
     setLoadingState(true);
-    await dispatch(axiosFollowUser(idUser));
-    toast.success(`Siguiendo a ${username}`);
-    setLoadingState(false)
+    const response = await dispatch(axiosFollowUser(idUser));
+    const { requestStatus } = response.meta;
+    if (requestStatus !== "rejected") {
+      handleToggleFollow();
+    }
+    setLoadingState(false);
   }
 
   const handleUnfollow = async () => {
-    handleToggleFollow();
     setLoadingState(true)
-    await dispatch(axiosUnfollowUser(idUser));
-    toast.success(`Dejaste de seguir a ${username}`);
+    const response = await dispatch(axiosUnfollowUser(idUser));
+    const { requestStatus } = response.meta;
+    if (requestStatus !== "rejected") {
+      handleToggleFollow();
+    }
     setLoadingState(false)
   }
 
