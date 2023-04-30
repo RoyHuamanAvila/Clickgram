@@ -10,7 +10,7 @@ export type SuggestionsProps = {
 
 const Suggestions: React.FC<SuggestionsProps> = ({ users }) => (
 	<div className="suggestions-container">
-		<p className='title'>Suggestions for you</p>
+		<p className='title'>Sugerencias para ti</p>
 		<div className="suggestionsitems-container">
 			{users.map(user => <SuggestionItem user={user} key={user._id} />)}
 		</div>

@@ -15,7 +15,7 @@ const PagesContainer: React.FC<PagesContainerProps> = () => {
 	return (
 		<div className='PagesContainer'>
 			<NavbarContainer>
-				<NavbarItem label='Home' toPath='/'>
+				<NavbarItem label='Inicio' toPath='/'>
 					<i className="bi bi-house-door-fill"></i>
 				</NavbarItem>
 				<NavbarItem label='Perfil' toPath={`/${username}`}>
