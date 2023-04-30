@@ -9,6 +9,18 @@ export const axiosGetUser = createAsyncThunk("user/get", async (id: string) => {
   return data;
 });
 
+export const axiosGetUserByUsername = createAsyncThunk(
+  "user/getUserByUsername",
+  async (username: string) => {
+    const response = await axios.get(
+      `http://localhost:3000/user/username/${username}`
+    );
+    const data = await response.data;
+
+    return data;
+  }
+);
+
 export const axiosFollowUser = createAsyncThunk(
   "user/follow",
   async (idToFollow: string) => {

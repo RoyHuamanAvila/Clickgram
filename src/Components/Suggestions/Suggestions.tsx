@@ -24,7 +24,7 @@ export interface SuggestionItemProps {
 const SuggestionItem: React.FC<SuggestionItemProps> = ({ user }) => (
 	<div className="suggestionitem">
 		<div>
-			<UserPicture picture={user.picture} />
+			<UserPicture picture={user.picture} username={user.username} />
 			<div>
 				<p className='suggestionitem-username'>{user.username}</p>
 				<p className='suggestionitem-fullname'>{user.fullname}</p>
