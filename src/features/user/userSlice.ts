@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { User, UserLogged } from "../../interfaces";
 import axios from "axios";
+import { toast } from "sonner";
 
 export const axiosGetUser = createAsyncThunk("user/get", async (id: string) => {
   const response = await axios.get(`http://localhost:3000/user/${id}`);
@@ -83,9 +84,14 @@ const userSlice = createSlice({
     });
     builder.addCase(axiosFollowUser.fulfilled, (state, action) => {
       state.data = action.payload;
+      toast.success("Ahora sigues a este usuario");
+    });
+    builder.addCase(axiosFollowUser.rejected, () => {
+      toast.error("Error al seguir a este usuario");
     });
     builder.addCase(axiosUnfollowUser.fulfilled, (state, action) => {
       state.data = action.payload;
+      toast.success("Dejaste de seguir a este usuario");
     });
   },
 });
