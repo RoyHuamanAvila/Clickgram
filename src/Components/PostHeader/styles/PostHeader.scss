@@ -2,7 +2,9 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.25rem;
 }
 
 .post-ownerinfo {
@@ -13,5 +15,12 @@
   .ownerinfo-name {
     font-weight: 500;
     margin: 0;
+  }
+}
+
+@media screen and (min-width: 470px) {
+  .post-header {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

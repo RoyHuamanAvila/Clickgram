@@ -11,9 +11,11 @@ export interface HomeProps {
 const Home: React.FC<HomeProps> = ({ posts }) => {
 	return (
 		<div className='home'>
-			{
-				posts.map(post => <PostContainer post={post} />)
-			}
+			<div className="home-content">
+				{
+					posts.map(post => <PostContainer post={post} />)
+				}
+			</div>
 			<div className="home-accountinfo">
 				<AccountWidget owner={{ fullname: 'User', picture: '', username: 'royandresdev' }} />
 			</div>
