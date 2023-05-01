@@ -13,15 +13,15 @@ export interface PostModalProps {
 }
 
 const PostModal: React.FC<PostModalProps> = ({ postData, likeButton }) => {
-	const { contents, likeCount, owner, comments, description } = postData;
+	const { content, owner, description, _id } = postData;
 
 	return (
 		<>
-			<div className="modal modal-xl fade" id={`${owner.name}modal`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div className="modal modal-xl fade" id={`${_id}modal`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div className="modal-dialog modal-dialog-centered">
 					<div className="modal-content dark">
 						<div className="modal-content-section">
-							<Carousel contents={contents} id={`${owner.name}carouselmodal`} />
+							<Carousel contents={content} id={`${_id}carouselmodal`} />
 						</div>
 						<div className="modal-content-section">
 							<div className="modal-header">
@@ -31,7 +31,7 @@ const PostModal: React.FC<PostModalProps> = ({ postData, likeButton }) => {
 								<Comment owner={owner} content={description} />
 							</div>
 							<div className="modal-interactive">
-								<PostInteractive likeButton={likeButton} idPost={owner.name} />
+								<PostInteractive likeButton={likeButton} idPost={_id!} />
 							</div>
 							<div className="modal-input">
 								<InputComment />

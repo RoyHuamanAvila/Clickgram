@@ -1,6 +1,5 @@
 import './App.scss'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Home } from './Pages'
 import { useAppDispatch, useAppSelector } from './hooks'
 import { useEffect } from 'react'
 import { getToken } from './features/application/authSlice'
@@ -11,6 +10,7 @@ import { axiosGetUser } from './features/user/userSlice'
 import { PagesContainer } from './Pages/PagesContainer'
 import PrivateRoute from './Routes/PrivateRoute'
 import ProfileContainer from './Pages/Profile/ProfileContainer'
+import HomeContainer from './Pages/Home/HomeContainer'
 
 function App() {
   const { isAuthenticated, user } = useAppSelector((state) => state.application);
@@ -19,7 +19,7 @@ function App() {
   const router = createBrowserRouter([
     {
       element: <PrivateRoute Component={<PagesContainer />} isAuthenticated={isAuthenticated} />, children: [
-        { path: '/', element: <Home /> },
+        { path: '/', element: <HomeContainer /> },
         { path: '/:username', element: <ProfileContainer /> }
       ]
     },

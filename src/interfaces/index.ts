@@ -22,8 +22,9 @@ export interface Comment {
 }
 
 export interface PostProps {
+  _id?: string;
   owner: User;
-  contents: ContentPost[];
+  content: string[];
   likeCount: number;
   description?: string;
   comments?: Comment[];
