@@ -10,8 +10,8 @@ export interface CommentProps {
 const Comment: React.FC<CommentProps> = ({ owner, content }) => {
 	return (
 		<div className='comment'>
-			<UserPicture picture={owner.picture} />
-			<p>{`${owner.name} ${content}`}</p>
+			<UserPicture picture={owner.picture} username={owner.username} />
+			<p><span className='fw-bold'>{owner.username}</span> {content}</p>
 		</div>
 	);
 };

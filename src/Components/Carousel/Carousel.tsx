@@ -1,9 +1,8 @@
 import React from 'react';
 import './styles/Carousel.scss';
-import { ContentPost } from '../../interfaces';
 export interface CarouselProps {
 	id: string;
-	contents: ContentPost[]
+	contents: string[]
 }
 
 const Carousel: React.FC<CarouselProps> = ({ contents, id }) => {
@@ -36,19 +35,13 @@ const Carousel: React.FC<CarouselProps> = ({ contents, id }) => {
 };
 
 interface CarouselItemProps {
-	content: ContentPost;
+	content: string;
 	index: number;
 }
 
 const CarouselItem: React.FC<CarouselItemProps> = ({ content, index }) => (
 	<div className={`carousel-item h-100 ${index === 0 ? 'active' : ''}`}>
-		{
-			content.type === 'img' ? (
-				<img src={content.url} className="d-block w-100" alt="..." />
-			) : (
-				<video className='w-100 h-100' autoPlay src={content.url} />
-			)
-		}
+		<img src={content} className="d-block w-100" alt="..." />
 	</div>
 )
 

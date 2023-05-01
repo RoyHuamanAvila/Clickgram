@@ -1,23 +1,19 @@
 import React from 'react';
 import './styles/Home.scss';
-import { Posts } from '../../Data/Posts';
-import { Post } from '../../Components';
-import { NavbarContainer, NavbarItem } from '../../Components/Navbar';
-import { Header } from '../../Components/Header';
 import { AccountWidget } from '../../Components/AccountWidget';
 import SuggestionContainer from '../../Components/Suggestions/SuggestionContainer';
-export interface HomeProps { }
+import { PostProps } from '../../interfaces';
+import PostContainer from '../../Components/Post/PostContainer';
+export interface HomeProps {
+	posts: PostProps[];
+}
 
-const Home: React.FC<HomeProps> = () => {
-	const posts = Posts;
+const Home: React.FC<HomeProps> = ({ posts }) => {
 	return (
 		<div className='home'>
-			<SuggestionContainer />
-			{/* <div className="home-posts">
-				{
-					posts.map(post => <Post {...post} />)
-				}
-			</div> */}
+			{
+				posts.map(post => <PostContainer post={post} />)
+			}
 			<div className="home-accountinfo">
 				<AccountWidget owner={{ fullname: 'User', picture: '', username: 'royandresdev' }} />
 			</div>
