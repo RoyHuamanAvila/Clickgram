@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Profile from "./Profile"
+import Profile from "./ProfileView"
 import { UserLogged } from "../../interfaces"
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { axiosGetUser, axiosGetUserByUsername } from "../../features/user/userSlice";

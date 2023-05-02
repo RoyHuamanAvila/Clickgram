@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector, useLoading, useToggle } from "../../../hooks"
 import { axiosFollowUser, axiosUnfollowUser } from "../../../features/user/userSlice";
-import ButtonFollow from "./ButtonFollow";
+import ButtonFollow from "./ButtonFollowView";
 import { toast } from "sonner";
 
 export interface ButtonFollowContainerProps {

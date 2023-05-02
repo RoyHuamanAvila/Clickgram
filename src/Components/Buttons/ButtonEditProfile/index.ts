@@ -1,1 +1,1 @@
-export { default as ButtonEditProfile } from './ButtonEditProfile';
+export { default as ButtonEditProfile } from "./ButtonEditProfileContainer";

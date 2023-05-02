@@ -1,1 +1,1 @@
-export { default as RegisterFormik } from "./RegisterFormik";
+export { default as Register } from "./RegisterContainer";

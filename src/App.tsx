@@ -3,14 +3,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from './hooks'
 import { useEffect } from 'react'
 import { getToken } from './features/application/authSlice'
-import LoginContainer from './Pages/Login/LoginContainer'
-import RegisterContainer from './Pages/Register/RegisterContainer'
 import { Toaster } from 'sonner'
 import { axiosGetUser } from './features/user/userSlice'
-import { PagesContainer } from './Pages/PagesContainer'
-import PrivateRoute from './Routes/PrivateRoute'
-import ProfileContainer from './Pages/Profile/ProfileContainer'
-import HomeContainer from './Pages/Home/HomeContainer'
+import { PrivateRoute } from './Routes'
+import { Home, Login, PagesContainer, Profile, Register } from './Pages';
 
 function App() {
   const { isAuthenticated, user } = useAppSelector((state) => state.application);
@@ -19,12 +15,12 @@ function App() {
   const router = createBrowserRouter([
     {
       element: <PrivateRoute Component={<PagesContainer />} isAuthenticated={isAuthenticated} />, children: [
-        { path: '/', element: <HomeContainer /> },
-        { path: '/:username', element: <ProfileContainer /> }
+        { path: '/', element: <Home /> },
+        { path: '/:username', element: <Profile /> }
       ]
     },
-    { path: '/login', element: <LoginContainer /> },
-    { path: '/register', element: <RegisterContainer /> },
+    { path: '/login', element: <Login /> },
+    { path: '/register', element: <Register /> },
   ])
 
   useEffect(() => {
