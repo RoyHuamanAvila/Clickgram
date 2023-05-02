@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Suggestions from './Suggestions'
+import Suggestions from './SuggestionsView'
 import { User } from '../../interfaces'
 import axios from 'axios';
 import { useAppSelector } from '../../hooks';

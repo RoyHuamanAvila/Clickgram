@@ -1,1 +1,1 @@
-export { default as ButtonFollow } from './ButtonFollow';
+export { default as ButtonFollow } from "./ButtonFollowContainer";

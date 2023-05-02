@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles/PostHeader.scss';
-import { User } from '../../interfaces';
+import { PostOwner, User } from '../../interfaces';
 import { UserPicture } from '../UserPicture';
 export interface PostHeaderProps {
-	owner: User;
+	owner: PostOwner;
 }
 
 const PostHeader: React.FC<PostHeaderProps> = ({ owner }) => {

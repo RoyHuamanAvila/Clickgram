@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import Post from './Post'
+import Post from './PostView'
 import { PostProps } from '../../interfaces'
 
 export interface PostContainerProps {

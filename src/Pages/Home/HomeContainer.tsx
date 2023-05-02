@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Home from './Home'
+import Home from './HomeView'
 import { PostProps } from '../../interfaces'
 import axios from 'axios';
 

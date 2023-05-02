@@ -1,9 +1,8 @@
 import React from 'react';
 import './Profile.scss';
-import { UserPicture } from '../../Components/UserPicture';
+import { UserPicture } from '../../Components';
 import { UserLogged } from '../../interfaces';
-import ButtonFollowContainer from '../../Components/Buttons/ButtonFollow/ButtonFollowContainer';
-import ButtonEditProfileContainer from '../../Components/Buttons/ButtonEditProfile/ButtonEditProfileContainer';
+import { ButtonEditProfile, ButtonFollow } from '../../Components/Buttons'
 
 export type ProfileProps = {
 	user?: UserLogged;
@@ -26,7 +25,7 @@ const Profile: React.FC<ProfileProps> = ({ user, isOwner }) => {
 							<div className='d-flex flex-column align-items-start flex-md-row gap-md-3'>
 								<p className='user-username'>{user.username}</p>
 								{
-									isOwner ? <ButtonEditProfileContainer /> : <ButtonFollowContainer idUser={user._id} username={user.username} />
+									isOwner ? <ButtonEditProfile /> : <ButtonFollow idUser={user._id} username={user.username} />
 								}
 							</div>
 						</div>

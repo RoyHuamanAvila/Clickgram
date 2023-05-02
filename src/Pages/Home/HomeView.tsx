@@ -1,9 +1,7 @@
 import React from 'react';
 import './styles/Home.scss';
-import { AccountWidget } from '../../Components/AccountWidget';
-import SuggestionContainer from '../../Components/Suggestions/SuggestionContainer';
+import { AccountWidget, Suggestions, Post } from '../../Components';
 import { PostProps } from '../../interfaces';
-import PostContainer from '../../Components/Post/PostContainer';
 export interface HomeProps {
 	posts: PostProps[];
 }
@@ -13,7 +11,7 @@ const Home: React.FC<HomeProps> = ({ posts }) => {
 		<div className='home'>
 			<div className="home-content">
 				{
-					posts.map(post => <PostContainer post={post} />)
+					posts.map(post => <Post post={post} />)
 				}
 			</div>
 			<div className="home-accountinfo">

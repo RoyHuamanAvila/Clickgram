@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonEditProfile from './ButtonEditProfile'
+import ButtonEditProfile from './ButtonEditProfileView'
 
 const ButtonEditProfileContainer = () => {
   return <ButtonEditProfile />
