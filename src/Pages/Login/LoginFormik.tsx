@@ -2,31 +2,10 @@ import React from 'react';
 import './Login.scss';
 import { BrandRAD } from '../../Components/BrandRAD';
 import { Link } from 'react-router-dom'
-import { useFormik } from 'formik';
-import * as Yup from 'yup'
 import { LoginAuthDto } from '../../interfaces/dto';
+import { FormikForm } from '../../interfaces/FormikCustomTypes';
 
-export type LoginProps = {
-	handleLogin: (userObject: LoginAuthDto) => void
-}
-
-const initialValues: LoginAuthDto = {
-	email: '',
-	password: ''
-}
-
-const Login: React.FC<LoginProps> = ({ handleLogin }) => {
-	const formik = useFormik({
-		initialValues,
-		onSubmit: (values) => {
-			handleLogin(values)
-		},
-		validationSchema: Yup.object({
-			email: Yup.string().email('Ingresa un email válido').required('Ingresa tu email'),
-			password: Yup.string().required('Ingresa una contraseña'),
-		})
-	})
-
+const LoginFormik: React.FC<FormikForm<LoginAuthDto>> = ({ formik }) => {
 	return (
 		<div className='login-page'>
 			<div className='login'>
@@ -65,4 +44,4 @@ const Login: React.FC<LoginProps> = ({ handleLogin }) => {
 	);
 };
 
-export default Login;
+export default LoginFormik;
