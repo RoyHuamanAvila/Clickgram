@@ -23,11 +23,16 @@ export interface Comment {
 
 export interface PostProps {
   _id?: string;
-  owner: User;
+  owner: PostOwner;
   content: string[];
   likeCount: number;
   description?: string;
   comments?: Comment[];
+}
+
+export interface PostOwner {
+  username: string;
+  picture: string;
 }
 
 export interface ContentPost {

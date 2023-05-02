@@ -1,38 +1,11 @@
-import React, { FormEvent } from 'react';
+import React from 'react';
 import './Register.scss';
 import { BrandRAD } from '../../Components/BrandRAD';
 import { Link } from 'react-router-dom';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import { RegisterAuthDto } from '../../interfaces/dto';
+import { FormikForm } from '../../interfaces/FormikCustomTypes';
 
-export type RegisterProps = {
-	handleRegister: (userObject: RegisterAuthDto) => Promise<void>
-}
-
-const initialValues: RegisterAuthDto = {
-	email: '',
-	fullname: '',
-	username: '',
-	password: ''
-}
-
-
-const Register: React.FC<RegisterProps> = ({ handleRegister }) => {
-
-	const formik = useFormik({
-		initialValues,
-		validationSchema: Yup.object({
-			email: Yup.string().email('Ingresa un email válido').required('Ingresa tu email'),
-			fullname: Yup.string().required('Ingresa tu nombre completo'),
-			username: Yup.string().required('Ingresa tu nombre de usuario'),
-			password: Yup.string().required('Ingresa una contraseña'),
-		}),
-		onSubmit: (values) => {
-			handleRegister(values);
-		}
-	})
-
+const RegisterFormik: React.FC<FormikForm<RegisterAuthDto>> = ({ formik }) => {
 	return (
 		<div className='register-page'>
 			<div className='register'>
@@ -95,4 +68,4 @@ const Register: React.FC<RegisterProps> = ({ handleRegister }) => {
 	);
 };
 
-export default Register;
+export default RegisterFormik;
