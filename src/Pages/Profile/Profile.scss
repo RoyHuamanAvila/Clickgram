@@ -27,13 +27,11 @@
 
 .userpicture-container-sm {
   margin-right: 1.5rem;
-
-  .userpicture {
-    @include sizes.setWidthAndHeight(77px)
-  }
+  position: relative;
 }
 
 .userpicture-container-md {
+  position: relative;
   display: none;
 }
 
@@ -110,7 +108,6 @@
 
     .userpicture {
       margin: auto;
-      @include sizes.setWidthAndHeight(150px)
     }
   }
 

@@ -1,0 +1,47 @@
+@use 'src/scss/sizes';
+@use 'src/scss/colors';
+
+.inputChangePicture {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+
+  input[type=file] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+
+  .inputChangePicture-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7373739a;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+    transition: transform 0.25s;
+  }
+
+  &:hover .inputChangePicture-message {
+    transform: translate(0);
+    transition: 0.5s;
+  }
+}
+
+.inputChangePicture-sm {
+  @include sizes.setWidthAndHeight(77px);
+}
+
+.inputChangePicture-md {
+  @include sizes.setWidthAndHeight(150px);
+}
