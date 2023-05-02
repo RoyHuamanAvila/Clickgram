@@ -14,3 +14,4 @@ export * from "./SavePostButton";
 export * from "./Sidebar";
 export * from "./Suggestions";
 export * from "./UserPicture";
+export * from "./InputChangePicture";

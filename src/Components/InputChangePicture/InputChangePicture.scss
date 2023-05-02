@@ -1,0 +1,25 @@
+.InputChangePicture {
+  opacity: 1;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  .InputChangePicture-input {
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &::after {
+    display: block;
+    content: "";
+    background-color: red;
+    height: 100%;
+    width: 100%;
+  }
+}

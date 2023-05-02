@@ -1,8 +1,10 @@
 import React from 'react';
 import './Profile.scss';
-import { UserPicture } from '../../Components';
+import { InputChangePicture, UserPicture } from '../../Components';
 import { UserLogged } from '../../interfaces';
 import { ButtonEditProfile, ButtonFollow } from '../../Components/Buttons'
+import { withChangePicture } from '../../HOC_Components/WithChangePicture/WithChangePicture';
+
 
 export type ProfileProps = {
 	user?: UserLogged;
@@ -10,17 +12,19 @@ export type ProfileProps = {
 }
 
 const Profile: React.FC<ProfileProps> = ({ user, isOwner }) => {
+	const ChangePictureUser_MD = withChangePicture(UserPicture, { size: 'md' });
+
 	return (
 		user ?
 			<div className="Profile">
 				<header className="Profile-header">
 					<div className="userpicture-container-md">
-						<UserPicture picture={user.picture} username={user.username} />
+						<ChangePictureUser_MD picture={user.picture} username={user.username} size='md' />
 					</div>
 					<section className='Profile-section'>
 						<div className="Profile-UserContainer">
 							<div className="userpicture-container-sm">
-								<UserPicture picture={user.picture} username={user.username} />
+								<UserPicture picture={user.picture} username={user.username} size='sm' />
 							</div>
 							<div className='d-flex flex-column align-items-start flex-md-row gap-md-3'>
 								<p className='user-username'>{user.username}</p>

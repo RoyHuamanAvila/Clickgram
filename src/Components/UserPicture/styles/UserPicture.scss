@@ -1,8 +1,7 @@
 @use 'src/scss/colors';
+@use 'src/scss/sizes';
 
 .userpicture {
-  width: 40px;
-  height: 40px;
   aspect-ratio: 1/1;
   display: block;
   border-radius: 50%;
@@ -15,4 +14,12 @@
     aspect-ratio: 1/1;
     border-radius: 50%;
   }
+}
+
+.userpicture-sm {
+  @include sizes.setWidthAndHeight(77px);
+}
+
+.userpicture-md {
+  @include sizes.setWidthAndHeight(150px)
 }
