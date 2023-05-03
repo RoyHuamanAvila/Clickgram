@@ -1,6 +1,6 @@
 import React from 'react';
 import './Profile.scss';
-import { InputChangePicture, UserPicture } from '../../Components';
+import { UserPicture } from '../../Components';
 import { UserLogged } from '../../interfaces';
 import { ButtonEditProfile, ButtonFollow } from '../../Components/Buttons'
 import { withChangePicture } from '../../HOC_Components/WithChangePicture/WithChangePicture';
@@ -12,14 +12,16 @@ export type ProfileProps = {
 }
 
 const Profile: React.FC<ProfileProps> = ({ user, isOwner }) => {
-	const ChangePictureUser_MD = withChangePicture(UserPicture, { size: 'md' });
+	const ChangePictureUser_MD = withChangePicture(UserPicture, { size: 'md', picture: user?.picture! });
 
 	return (
 		user ?
 			<div className="Profile">
 				<header className="Profile-header">
 					<div className="userpicture-container-md">
-						<ChangePictureUser_MD picture={user.picture} username={user.username} size='md' />
+						{
+							isOwner ? <ChangePictureUser_MD picture={user.picture} username={user.username} size='md' /> : <UserPicture picture={user.picture} username={user.username} size='md' />
+						}
 					</div>
 					<section className='Profile-section'>
 						<div className="Profile-UserContainer">
