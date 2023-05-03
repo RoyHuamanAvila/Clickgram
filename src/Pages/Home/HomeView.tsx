@@ -15,7 +15,7 @@ const Home: React.FC<HomeProps> = ({ posts }) => {
 				}
 			</div>
 			<div className="home-accountinfo">
-				<AccountWidget owner={{ fullname: 'User', picture: '', username: 'royandresdev' }} />
+				<AccountWidget />
 			</div>
 		</div >
 	);

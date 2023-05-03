@@ -3,6 +3,26 @@ import { User, UserLogged } from "../../interfaces";
 import axios from "axios";
 import { toast } from "sonner";
 
+export const axiosUpdatePicture = createAsyncThunk(
+  "user/edit-picture",
+  async (file: File) => {
+    let pictureFormData = new FormData();
+    pictureFormData.append("picture", file);
+    const response = await axios.patch(
+      "http://localhost:3000/user/edit/picture",
+      pictureFormData,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    const picture = response.data.picture;
+    return picture;
+  }
+);
+
 export const axiosGetUser = createAsyncThunk("user/get", async (id: string) => {
   const response = await axios.get(`http://localhost:3000/user/${id}`);
   const data = await response.data;
@@ -92,6 +112,10 @@ const userSlice = createSlice({
     builder.addCase(axiosUnfollowUser.fulfilled, (state, action) => {
       state.data = action.payload;
       toast.success("Dejaste de seguir a este usuario");
+    });
+    builder.addCase(axiosUpdatePicture.fulfilled, (state, action) => {
+      state.data.picture = action.payload;
+      toast.success("Se cambio su foto de perfil");
     });
   },
 });
