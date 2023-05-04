@@ -4,6 +4,8 @@ import { UserPicture } from '../../Components';
 import { UserLogged } from '../../interfaces';
 import { ButtonEditProfile, ButtonFollow } from '../../Components/Buttons'
 import { withChangePicture } from '../../HOC_Components/WithChangePicture/WithChangePicture';
+import { ProfileNavbar } from '../../Components/ProfileNavbar';
+import { PostsPreview } from '../../Components/PostsPreview';
 
 
 export type ProfileProps = {
@@ -42,7 +44,7 @@ const Profile: React.FC<ProfileProps> = ({ user, isOwner }) => {
 									Si no puedes soportar este lugar llévate a ti mismo a lugares más altos 📈</p>
 							</section>
 							<div className="user-stats">
-								<p><span>0</span> publicaciones</p>
+								<p><span>{user.posts.length}</span> publicaciones</p>
 								<p><span>{user.followers.length}</span> seguidores</p>
 								<p><span>{user.follows.length}</span> seguidos</p>
 							</div>
@@ -50,6 +52,14 @@ const Profile: React.FC<ProfileProps> = ({ user, isOwner }) => {
 					</section>
 				</header>
 				<div className="Profile-content">
+					<ProfileNavbar />
+					{
+						user.posts.length > 0 ? <PostsPreview posts={user.posts} /> : <div className='my-4'>
+							<i className="bi bi-camera fs-1"></i>
+							<p className='fw-bold text-white fs-2'>Comparte fotos</p>
+							<p className='text-white'>Cuando compartas fots, aparecerán en tu perfil</p>
+						</div>
+					}
 				</div>
 			</div> : <></>
 	);

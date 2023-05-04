@@ -81,11 +81,12 @@
   }
 
   .Profile-header {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 
   .Profile-content {
-    border-bottom: 1px solid colors.$gray-25;
+    border-top: 1px solid colors.$gray-25;
+    text-align: center;
   }
 
   .Profile-UserContainer {

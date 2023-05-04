@@ -7,6 +7,7 @@ export interface UserLogged {
   picture: string;
   follows: string[];
   followers: string[];
+  posts: PostProps[];
   __v: number;
 }
 
