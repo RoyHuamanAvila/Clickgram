@@ -7,39 +7,38 @@ import { FormikForm } from '../../interfaces/FormikCustomTypes';
 
 const LoginFormik: React.FC<FormikForm<LoginAuthDto>> = ({ formik }) => {
 	return (
-		<div className='login-page'>
-			<div className='login'>
-				<img className='login-logo' src="/Clickgram-Icon-OnlyText.webp" alt="Logo Clickgram" />
-				<form className='login-form' onSubmit={formik.handleSubmit}>
-					<input
-						type="text"
-						title='email'
-						name='email'
-						id='email'
-						placeholder='Correo electronico'
-						onChange={formik.handleChange}
-						value={formik.values.email}
-					/>
-					<p className='error-message'>{formik.errors.email}</p>
-					<input
-						type="password"
-						title='password'
-						name='password'
-						id='password'
-						placeholder='Contraseña'
-						onChange={formik.handleChange}
-						value={formik.values.password}
-					/>
-					<p className='error-message'>{formik.errors.password}</p>
-					<button type='submit' className='login-btn-submit'>Iniciar Sesion</button>
-				</form>
-				<a className='login-rememberPassword'>¿Olvidaste tu contraseña?</a>
+		<div className='min-vh-100 min-vw-100 d-flex align-items-center justify-content-center'>
+			<div className='d-flex align-items-center gap-4'>
+				<img src="/Phone.png" alt="Phone clickgram" className='phone-img' />
+				<div className='form'>
+					<form className='login-form'>
+						<img className='login-form-logo' src="/Logo.svg" alt="Logo" />
+						<div className="login-form-inputs">
+							<input
+								type="text"
+								placeholder='Correo electrónico'
+								title='Email'
+								name='email'
+								onChange={formik.handleChange}
+								value={formik.values.email}
+							/>
+							<input
+								type="password"
+								placeholder='Contraseña'
+								title='Password'
+								name='password'
+								onChange={formik.handleChange}
+								value={formik.values.password}
+							/>
+						</div>
+						<button className='login-form-button'>Iniciar sesión</button>
+						<a href="" className='text-center text-decoration-none'>¿Olvidaste tu contraseña?</a>
+					</form>
+					<div className="redirect">
+						<p className='m-0'>¿No tienes cuenta? <Link to='/register' className='text-decoration-none'>Registrate</Link></p>
+					</div>
+				</div>
 			</div>
-			<div className='toRegister-container'>
-				<p>¿No tienes cuenta?</p>
-				<Link to='/register' className='link-toRegister'>Registrate</Link>
-			</div>
-			<BrandRAD />
 		</div>
 	);
 };

@@ -1,4 +1,5 @@
 import './App.scss'
+import './scss/custom.scss'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from './hooks'
 import { useEffect } from 'react'
