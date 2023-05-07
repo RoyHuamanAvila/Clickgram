@@ -35,8 +35,7 @@
     flex-direction: column;
     gap: 10px;
 
-    input[type=text],
-    input[type=password] {
+    input {
       padding: 10px;
       border: 1px solid colors.$stroke;
       border-radius: 5px;

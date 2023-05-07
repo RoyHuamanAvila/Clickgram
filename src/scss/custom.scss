@@ -1,9 +1,17 @@
-$primary: #19725D;
-$background: #FAFAF9;
+@use 'src/scss/colors';
+
+$primary: colors.$primary;
+$secondary: colors.$secondary;
+$background: colors.$background;
+$stroke: colors.$stroke;
+$gray: colors.$gray;
 
 $theme-colors: (
   "primary": $primary,
+  "secondary": $secondary,
   "background": $background,
+  "stroke": $stroke,
+  "gray": $gray,
 );
 
 body {
