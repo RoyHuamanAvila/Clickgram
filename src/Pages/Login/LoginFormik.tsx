@@ -11,11 +11,11 @@ const LoginFormik: React.FC<FormikForm<LoginAuthDto>> = ({ formik }) => {
 			<div className='d-flex align-items-center gap-4'>
 				<img src="/Phone.png" alt="Phone clickgram" className='phone-img' />
 				<div className='form'>
-					<form className='login-form'>
+					<form className='login-form' onSubmit={formik.handleSubmit}>
 						<img className='login-form-logo' src="/Logo.svg" alt="Logo" />
 						<div className="login-form-inputs">
 							<input
-								type="text"
+								type="email"
 								placeholder='Correo electrónico'
 								title='Email'
 								name='email'
@@ -31,7 +31,7 @@ const LoginFormik: React.FC<FormikForm<LoginAuthDto>> = ({ formik }) => {
 								value={formik.values.password}
 							/>
 						</div>
-						<button className='login-form-button'>Iniciar sesión</button>
+						<button type='submit' className='login-form-button'>Iniciar sesión</button>
 						<a href="" className='text-center text-decoration-none'>¿Olvidaste tu contraseña?</a>
 					</form>
 					<div className="redirect">

@@ -1,88 +1,48 @@
 @use 'src/scss/colors';
 
-.register-page {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  gap: 1rem;
-  width: max-content;
-  height: 100vh;
-  justify-content: center;
-}
-
-.error-message {
-  color: colors.$error;
-  margin-bottom: 0.25rem 0;
-}
-
 .register {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 1px solid colors.$gray-25;
-  width: 300px;
-  padding: 3rem 2rem 1rem 2rem;
-
-  .register-text {
-    color: colors.$gray;
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  .register-logo {
-    height: 2.5rem;
-    width: auto;
-    margin-bottom: 2rem;
-  }
+  gap: 20px;
 
   .register-form {
     display: flex;
     flex-direction: column;
+    gap: 30px;
+    border: 1px solid colors.$stroke;
+    padding: 60px 30px;
+    border-radius: 10px;
+  }
+
+  .register-form-message {
+    font-weight: bold;
+    color: colors.$gray;
     width: 100%;
 
-    input[type=text],
-    input[type=email],
-    input[type=password] {
-      padding: 0.25rem;
-      border-radius: 0.25rem;
-      background: transparent;
-      border: 1px solid colors.$gray-25;
-      color: colors.$white;
-
-      &:focus {
-        outline: 1px solid colors.$gray;
-      }
-
-      &::placeholder {
-        font-size: 0.75rem;
-      }
+    @media (min-width: 270px) {
+      width: 270px;
     }
   }
 
-  .register-btn-submit {
-    background-color: colors.$blue;
-    color: colors.$white;
-    border: 0;
-    border-radius: 0.5rem;
-    padding: 0.15rem 0;
-    margin-top: 0.5rem;
-  }
-}
-
-.toLogin-container {
-  color: colors.$white;
-  border: 1px solid colors.$gray-25;
-  padding: 1rem 2rem;
-  display: flex;
-  gap: 0.5rem;
-
-  .link-toLogin {
-    text-decoration: none;
-    color: colors.$blue;
+  .register-form-logo {
+    height: 48px;
+    width: auto;
   }
 
-  p {
-    margin: 0;
+  .register-form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    input {
+      padding: 10px;
+      border: 1px solid colors.$stroke;
+      border-radius: 5px;
+      width: 100%;
+
+      @media (min-width: 270px) {
+        width: 270px;
+      }
+    }
   }
 }

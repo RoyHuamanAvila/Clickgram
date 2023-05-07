@@ -7,63 +7,47 @@ import { FormikForm } from '../../interfaces/FormikCustomTypes';
 
 const RegisterFormik: React.FC<FormikForm<RegisterAuthDto>> = ({ formik }) => {
 	return (
-		<div className='register-page'>
-			<div className='register'>
-				<img className='register-logo' src="/Clickgram-Icon-OnlyText.webp" alt="Logo Clickgram" />
-				<p className='register-text'>Regístrate para ver fotos y videos de tus amigos.</p>
+		<div className="d-flex justify-content-center align-items-center min-vh-100 w-100">
+			<div className="register">
 				<form className='register-form' onSubmit={formik.handleSubmit}>
-					<input
-						type="email"
-						title='email'
-						name='email'
-						id='email'
-						placeholder='Correo electronico'
-						onChange={formik.handleChange}
-						value={formik.values.email}
-						required
-					/>
-					<p className='error-message'>{formik.errors.email}</p>
-					<input
-						type="text"
-						title='fullname'
-						name='fullname'
-						id='fullname'
-						placeholder='Nombre completo'
-						onChange={formik.handleChange}
-						value={formik.values.fullname}
-						required
-					/>
-					<p className='error-message'>{formik.errors.fullname}</p>
-					<input
-						type="text"
-						title='username'
-						name='username'
-						id='username'
-						placeholder='Nombre de usuario'
-						onChange={formik.handleChange}
-						value={formik.values.username}
-						required
-					/>
-					<p className='error-message'>{formik.errors.username}</p>
-					<input
-						type="password"
-						title='password'
-						name='password'
-						id='password'
-						placeholder='Contraseña'
-						onChange={formik.handleChange}
-						value={formik.values.password}
-						required
-					/>
-					<p className='error-message'>{formik.errors.password}</p>
-					<button type='submit' className='register-btn-submit'>Registrarte</button>
+					<img className='register-form-logo' src="Logo.svg" alt="Logo" />
+					<p className='register-form-message'>Regístrate para ver fotos y videos de tus amigos.</p>
+					<div className="register-form-inputs">
+						<input
+							type="email"
+							name='email'
+							placeholder='Correo electrónico'
+							onChange={formik.handleChange}
+							value={formik.values.email}
+						/>
+						<input
+							type="text"
+							name='fullname'
+							placeholder='Nombre completo'
+							onChange={formik.handleChange}
+							value={formik.values.fullname}
+						/>
+						<input
+							type="text"
+							name='username'
+							placeholder='Nombre de usuario'
+							onChange={formik.handleChange}
+							value={formik.values.username}
+						/>
+						<input
+							type="password"
+							name='password'
+							placeholder='Contraseña'
+							onChange={formik.handleChange}
+							value={formik.values.password}
+						/>
+					</div>
+					<button type='submit' className='btn btn-secondary text-primary'>Registrarse</button>
 				</form>
+				<div className="redirect">
+					<p className='m-0'>¿Tienes una cuenta? <Link to='/login' className='text-decoration-none'>Inicia sesión</Link></p>
+				</div>
 			</div>
-			<div className='toLogin-container'>
-				<p>¿Ya tienes cuenta?</p>
-				<Link to='/login' className='link-toLogin'>Inicia Sesion</Link>
-			</div>
-			<BrandRAD />
 		</div>
 	);
 };
