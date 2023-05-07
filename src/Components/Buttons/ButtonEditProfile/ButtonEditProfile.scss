@@ -7,3 +7,10 @@
   border-radius: 0.5rem;
   font-weight: bold;
 }
+
+.editprofile-container {
+  .modal-content {
+    background-color: black;
+    border: 1px solid colors.$gray-25;
+  }
+}
