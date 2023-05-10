@@ -7,7 +7,7 @@ export type HeaderProps = {
 const Header: React.FC<HeaderProps> = () => {
 	return (
 		<header className='header'>
-			<img className='header-logo' src="/Clickgram-Icon-OnlyText.webp" alt="Header logo" />
+			<img className='header-logo' src="/Logo.svg" alt="Header logo" />
 		</header>
 	);
 };

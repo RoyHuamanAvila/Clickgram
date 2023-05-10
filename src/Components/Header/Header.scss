@@ -7,12 +7,11 @@
   height: 56px;
   width: 100%;
   z-index: 5;
-  background-color: black;
-  border-bottom: 1px solid colors.$gray-25;
+  border-bottom: 1px solid colors.$stroke;
   padding: 1rem;
 
   .header-logo {
-    height: 1.5rem;
+    height: 28px;
     width: auto;
   }
 }
