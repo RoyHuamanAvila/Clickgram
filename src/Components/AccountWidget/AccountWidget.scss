@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 20px;
 
   .AccountWidget-ownerinfo {
     display: flex;
@@ -21,7 +21,7 @@
 .btn-changeaccount {
   border: 0;
   background-color: transparent;
-  color: colors.$blue;
+  color: colors.$primary;
 }
 
 .ownerinfo-names {
@@ -29,11 +29,13 @@
 }
 
 .ownerinfo-username {
-  color: colors.$white;
+  color: colors.$dark;
+  font-weight: 600;
   margin: 0;
 }
 
 .ownerinfo-fullname {
   color: colors.$gray;
+  font-size: 14px;
   margin: 0;
 }
