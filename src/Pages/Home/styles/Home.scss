@@ -16,7 +16,7 @@
   font-size: 0.75rem;
 }
 
-.home-accountinfo {
+.home-aside {
   display: none;
 }
 
@@ -47,7 +47,7 @@
 }
 
 @media (min-width: 1200px) {
-  .home-accountinfo {
+  .home-aside {
     display: block;
   }
 

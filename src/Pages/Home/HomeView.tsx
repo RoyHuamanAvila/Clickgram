@@ -14,9 +14,10 @@ const Home: React.FC<HomeProps> = ({ posts }) => {
 					posts.map(post => <Post post={post} />)
 				}
 			</div>
-			<div className="home-accountinfo">
+			<aside className="home-aside">
 				<AccountWidget />
-			</div>
+				<p className='copyright'>© CLICKGRAM FROM ROYANDRESDEV</p>
+			</aside>
 		</div >
 	);
 };
