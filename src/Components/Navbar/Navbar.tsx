@@ -1,19 +1,33 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 import './Navbar.scss';
+import { useAppSelector } from '../../hooks';
 
 export interface NavbarContainerProps {
-	children: React.ReactNode
 }
 
-export const NavbarContainer: React.FC<NavbarContainerProps> = ({ children }) => {
+export const NavbarContainer: React.FC<NavbarContainerProps> = () => {
+	const { username, picture } = useAppSelector(state => state.user.data);
+
 	return (
-		<nav className='navbar-container'>
-			<img className='navbar-logo' src="/Clickgram-Icon-OnlyText.webp" alt="Navbar logo" />
-			<div className='navbar-items-container'>
-				{children}
+		<div className="navbar-container">
+			<img className='navbar-logo' src="/Logo.svg" alt="Logo clickgram" />
+			<img className='navbar-logonotext' src="/LogoNoText.svg" alt="Logo Clickgram" />
+			<div className="navbar-items">
+				<NavbarItem label='Inicio' toPath='/'>
+					<i className="bi bi-house-door-fill"></i>
+				</NavbarItem>
+				<NavbarItem label='Create' toPath='/create'>
+					<i className="bi bi-plus-square"></i>
+				</NavbarItem>
+				<NavbarItem label='Perfil' toPath={`/${username}`}>
+					<img src={picture} alt="User photo" />
+				</NavbarItem>
 			</div>
-		</nav>
+			<div className="navbar-item">
+				<i className="bi bi-box-arrow-right"></i> <span>Cerrar sesión</span>
+			</div>
+		</div>
 	)
 }
 

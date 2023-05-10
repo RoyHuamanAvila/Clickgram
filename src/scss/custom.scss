@@ -5,6 +5,7 @@ $secondary: colors.$secondary;
 $background: colors.$background;
 $stroke: colors.$stroke;
 $gray: colors.$gray;
+$dark: colors.$dark;
 
 $theme-colors: (
   "primary": $primary,
@@ -12,10 +13,12 @@ $theme-colors: (
   "background": $background,
   "stroke": $stroke,
   "gray": $gray,
+  "dark": $dark,
 );
 
 body {
   background: $background;
+  color: $dark;
 }
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
