@@ -20,6 +20,14 @@
   display: none;
 }
 
+.home-content {
+  padding: 10px 0;
+
+  @media (min-width: 768px) {
+    padding: 0;
+  }
+}
+
 @media screen and (min-width: 470px) {
   .home {
     display: flex;
@@ -29,6 +37,7 @@
 }
 
 @media (min-width: 768px) {
+
   .home {
     .home-posts {
       margin-top: 0;
@@ -37,7 +46,7 @@
   }
 }
 
-@media (min-width: 1150px) {
+@media (min-width: 1200px) {
   .home-accountinfo {
     display: block;
   }

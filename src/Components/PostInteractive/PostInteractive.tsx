@@ -14,7 +14,7 @@ const PostInteractive: React.FC<PostInteractiveProps> = ({ likeButton, idPost })
 	return (
 		<div className="post-interactive">
 			<div className='post-interactive-buttons'>
-				<div>
+				<div className='d-flex align-items-center'>
 					<LikeButton handleLikePost={handleLikePost} liked={liked} likeCounter={likeCounter} />
 					<button type='button' className="bi bi-chat btn-showcomments" data-bs-toggle="modal" data-bs-target={`#${idPost}modal`} title='View comments'></button>
 					<i className="bi bi-send"></i>

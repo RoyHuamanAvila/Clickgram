@@ -22,7 +22,7 @@ const InputComment: React.FC<InputCommentProps> = () => {
 	}
 
 	return (
-		<div className='inputcomment dark'>
+		<div className='inputcomment'>
 			{
 				newComments.map((comment, index) => <p key={index}>{comment}</p>)
 			}

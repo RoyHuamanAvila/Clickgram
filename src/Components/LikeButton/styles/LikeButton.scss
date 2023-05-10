@@ -5,32 +5,31 @@
   width: 1.5rem;
   height: 1.5rem;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.likebutton-like {
+.likebutton-animation {
   color: #ff3040 !important;
   animation: likebutton-animation;
   animation-duration: .45s;
   animation-timing-function: ease-in-out;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 @keyframes likebutton-animation {
   0% {
-    font-size: 1.5rem;
+    transform: scale(1);
   }
 
   25% {
-    font-size: 1.6rem;
+    transform: scale(1.2);
   }
 
   50% {
-    font-size: 1.45rem;
+    transform: scale(.95);
   }
 
   100% {
-    font-size: 1.5rem;
+    transform: scale(1);
   }
 }

@@ -18,7 +18,7 @@ $theme-colors: (
 
 body {
   background: $background;
-  color: $dark;
+  color: $dark !important;
 }
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
