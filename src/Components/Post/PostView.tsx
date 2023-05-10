@@ -27,21 +27,18 @@ const Post: React.FC<PostProps> = (post) => {
 	}, [handleToggleLike, executeOnToggleLike])
 
 	return (
-		<div className='post dark'>
+		<div className='post'>
 			<PostHeader owner={owner} />
 			<div className="post-content">
 				<Carousel contents={contents} id={_id!} />
 			</div>
-			<div className='px-3 px-md-0'>
-				<PostInteractive likeButton={{ handleLikePost, liked, likeCounter }} idPost={_id!} />
-				<p className='post-description'><span>{owner.username}</span> {description}</p>
-				<p className='post-comments'>
-					Ver los {comments?.length} comentarios
-					<button type="button" className="post-buttonmodal" data-bs-toggle="modal" data-bs-target={`#${_id}modal`} title='View More' />
-				</p>
-				<InputComment />
-				<PostModal postData={post} likeButton={{ handleLikePost, liked, likeCounter }} />
-			</div>
+			<PostInteractive likeButton={{ handleLikePost, liked, likeCounter }} idPost={_id!} />
+			<p className='post-description'><span>{owner.username}</span> {description}</p>
+			<button type="button" className="post-comments" data-bs-toggle="modal" data-bs-target={`#${_id}modal`} title='View More'>
+				Ver los {comments?.length} comentarios
+			</button>
+			<InputComment />
+			<PostModal postData={post} likeButton={{ handleLikePost, liked, likeCounter }} />
 		</div >
 	);
 };

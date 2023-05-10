@@ -1,11 +1,7 @@
+@use 'src/scss/colors';
+
 .inputcomment {
-
-
-  &.dark {
-    textarea {
-      color: white;
-    }
-  }
+  padding: 0 10px;
 
   p {
     white-space: pre-wrap;
@@ -19,11 +15,13 @@
   textarea {
     background-color: transparent;
     border: 0;
+    border-radius: 5px;
     width: 100%;
-    resize: none;
+    max-height: 60px;
+    font-size: 14px;
 
     &:focus {
-      outline: 0;
+      outline: 1px solid colors.$stroke;
     }
   }
 

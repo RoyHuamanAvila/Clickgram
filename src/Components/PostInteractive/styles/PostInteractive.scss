@@ -1,6 +1,10 @@
 @use 'src/scss/colors';
 
 .post-interactive {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
   .post-interactive-buttons {
     font-size: 1.5rem;
@@ -16,6 +20,7 @@
 
   .post-countlikes {
     font-weight: 600;
+    margin: 0;
   }
 
 }
@@ -24,5 +29,4 @@
   border: 0;
   padding: 0;
   background: transparent;
-  color: colors.$white;
 }

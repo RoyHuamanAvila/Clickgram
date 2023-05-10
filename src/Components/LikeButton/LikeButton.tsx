@@ -11,7 +11,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({ handleLikePost, liked }) => {
 	return (
 		<button className='likebutton' title='Like' onClick={handleLikePost}>
 			{
-				liked ? <i className="bi bi-heart-fill likebutton-like"></i> : <i className="bi bi-heart like"></i>
+				liked ? <i className="bi bi-heart-fill likebutton-animation"></i> : <i className="bi bi-heart like"></i>
 			}
 		</button>
 	);
