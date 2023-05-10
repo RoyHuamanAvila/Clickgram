@@ -10,19 +10,10 @@ export type PagesContainerProps = {
 }
 
 const PagesContainer: React.FC<PagesContainerProps> = () => {
-	const { username, picture } = useAppSelector(state => state.user.data);
-
 	return (
 		<div className='PagesContainer'>
-			<NavbarContainer>
-				<NavbarItem label='Inicio' toPath='/'>
-					<i className="bi bi-house-door-fill"></i>
-				</NavbarItem>
-				<NavbarItem label='Perfil' toPath={`/${username}`}>
-					<UserPicture picture={picture} username={username} />
-				</NavbarItem>
-			</NavbarContainer>
-			<Header />
+			<NavbarContainer />
+			{/* <Header /> */}
 			<div className='PagesContainer-content'>
 				<Outlet />
 			</div>
