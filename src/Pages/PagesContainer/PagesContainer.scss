@@ -2,24 +2,24 @@
   box-sizing: border-box;
   position: relative;
   width: 100%;
-
 }
 
 .PagesContainer-content {
   margin-top: 56px;
-  min-height: calc(100vh - 56px);
+  margin-bottom: 48px;
+  min-height: calc(100vh - 104px);
 }
 
 @media screen and (min-width: 768px) {
   .PagesContainer-content {
     margin-top: 2rem;
-    min-height: 100vh;
+    min-height: calc(100vh - 2rem);
     margin-left: auto;
     width: calc(100% - 72px);
   }
 }
 
-@media screen and (min-width: 1260px) {
+@media screen and (min-width: 1200px) {
   .PagesContainer-content {
     width: calc(100% - 244px);
   }

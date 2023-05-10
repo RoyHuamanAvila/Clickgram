@@ -13,7 +13,7 @@ const PagesContainer: React.FC<PagesContainerProps> = () => {
 	return (
 		<div className='PagesContainer'>
 			<NavbarContainer />
-			{/* <Header /> */}
+			<Header />
 			<div className='PagesContainer-content'>
 				<Outlet />
 			</div>
