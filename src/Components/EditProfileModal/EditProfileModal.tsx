@@ -9,15 +9,15 @@ export type EditProfileModalProps = {
 const EditProfileModal: React.FC<EditProfileModalProps> = ({ user }) => {
 	return (
 		<>
-			<button type="button" className="btn btn-stroke fw-semibold text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+			<button type="button" className="btn btn-stroke fw-semibold text-dark" data-bs-toggle="modal" data-bs-target="#editProfileModal">
 				Editar perfil
 			</button>
 
-			<div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div className="modal fade" id="editProfileModal" tabIndex={-1} aria-labelledby="editProfileModalLabel" aria-hidden="true">
 				<div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 					<div className="modal-content flex-column">
 						<div className="d-flex justify-content-between px-3 pt-3">
-							<h1 className="modal-title fs-5" id="exampleModalLabel">Editar perfil</h1>
+							<h1 className="modal-title fs-5" id="editProfileModalLabel">Editar perfil</h1>
 							<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div className="modal-body">
