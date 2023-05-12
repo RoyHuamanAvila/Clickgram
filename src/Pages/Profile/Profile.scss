@@ -1,139 +1,58 @@
-@use 'src/scss/sizes';
 @use 'src/scss/colors';
 
-.Profile {
+.profile {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
   max-width: 935px;
   margin: auto;
 }
 
-.Profile-header {
+.profile-header {
   display: flex;
-  justify-content: center;
-  color: colors.$white;
+  flex-direction: column;
+  align-items: stretch;
 }
 
-.Profile-content {
-  width: 100%;
-}
+.profile-navbar-item {
+  font-size: 1.5rem;
+  padding: 0.25rem 0;
 
-.Profile-UserContainer {
-  display: flex;
-  max-width: 100%;
-  position: relative;
-  margin: 1rem;
-  box-sizing: border-box;
-}
-
-
-.userpicture-container-sm {
-  margin-right: 1.5rem;
-  position: relative;
-}
-
-.userpicture-container-md {
-  position: relative;
-  display: none;
-}
-
-.user-identifiers {
-  padding: 0 1rem;
-}
-
-.user-stats {
-  display: flex;
-  border-top: 1px solid colors.$gray-25;
-  border-bottom: 1px solid colors.$gray-25;
-  padding: 0.75rem 0;
-
-  p {
-    flex-grow: 1;
+  @media (min-width: 768px) {
     font-size: 1rem;
-    text-align: center;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+  }
 
-    span {
-      font-weight: bold;
+  &.active {
+    border-top: 1px solid colors.$dark;
+    color: colors.$primary;
+  }
+}
+
+.profile-posts {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  gap: 0.25rem;
+
+  div {
+    flex-basis: calc((100% / 3) - 0.19rem);
+    background-color: colors.$stroke;
+    aspect-ratio: 1/1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
 
-.user-username {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
+.profile-stats {
+  display: flex;
+  padding: 0.5rem 0;
+  border-top: 1px solid colors.$stroke;
 
-.user-fullname {
-  font-size: 1rem;
-  margin: 0;
-  font-weight: bold;
-}
-
-.user-description {
-  white-space: pre-wrap;
-}
-
-
-@media screen and (min-width: 768px) {
-  .Profile {
-    align-items: center;
-  }
-
-  .Profile-header {
-    margin-bottom: 2rem;
-  }
-
-  .Profile-content {
-    border-top: 1px solid colors.$gray-25;
-    text-align: center;
-  }
-
-  .Profile-UserContainer {
-    margin: 0;
-    padding-bottom: 1rem;
-  }
-
-  .userpicture-container-sm {
-    display: none;
-  }
-
-  .user-description {
-    margin-bottom: 0;
-  }
-
-  .userpicture-container-md {
-    display: block;
-    flex-grow: 1;
-    margin-right: 1.875rem;
-
-    .userpicture {
-      margin: auto;
-    }
-  }
-
-  .user-identifiers {
-    order: 2;
-    padding: 0;
-  }
-
-  .usercontainer-user {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .user-stats {
-    order: 1;
+  @media (min-width: 768px) {
     border: 0;
-    padding-bottom: 1rem;
-
-    p {
-      display: block;
-      text-align: left;
-    }
-  }
-
-  .Profile-section {
-    flex-grow: 2;
   }
 }
