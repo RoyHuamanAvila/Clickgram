@@ -5,11 +5,11 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { axiosUpdatePicture } from '../../features/user/userSlice';
 
 export type ChangePictureConfig = {
-	size: 'sm' | 'md';
+	size: string;
 	picture: string;
 }
 
-export function withChangePicture<T extends {}>(WrappedComponent: ComponentType<T & ChangePictureConfig>, config: ChangePictureConfig) {
+export function withChangePicture<T extends {}>(WrappedComponent: ComponentType<T>, config: ChangePictureConfig) {
 	return (props: T) => {
 		const user = useAppSelector(state => state.user.data);
 		const dispatch = useAppDispatch();
@@ -23,7 +23,7 @@ export function withChangePicture<T extends {}>(WrappedComponent: ComponentType<
 		}
 
 		return (
-			<div className={`inputChangePicture inputChangePicture-${config.size}`}>
+			<div className='inputChangePicture' style={{ height: config.size, width: config.size }}>
 				<input type='file' title='Cambiar foto' onChange={handleOnChange} />
 				<WrappedComponent {...props} size={config.size} picture={user.picture} />
 				<div className="inputChangePicture-message">
