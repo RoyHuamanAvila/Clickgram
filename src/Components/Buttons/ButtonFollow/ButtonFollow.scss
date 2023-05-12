@@ -2,17 +2,17 @@
 
 .ButtonFollow {
   border: 0;
-  color: colors.$white;
+  color: colors.$primary;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  background: colors.$blue;
+  background: colors.$secondary;
 }
 
 .ButtonUnfollow {
   border: 0;
-  color: black;
   font-weight: 600;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  background: colors.$white;
+  color: colors.$dark;
+  background: colors.$stroke;
 }
