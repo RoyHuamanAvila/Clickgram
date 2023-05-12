@@ -2,10 +2,9 @@ import React from 'react';
 import './Profile.scss';
 import { UserPicture } from '../../Components';
 import { UserLogged } from '../../interfaces';
-import { ButtonEditProfile, ButtonFollow } from '../../Components/Buttons'
 import { withChangePicture } from '../../HOC_Components/WithChangePicture/WithChangePicture';
-import { ProfileNavbar } from '../../Components/ProfileNavbar';
-import { PostsPreview } from '../../Components/PostsPreview';
+import { EditProfileModal } from '../../Components/EditProfileModal';
+import { ButtonFollow } from '../../Components/Buttons';
 
 
 export type ProfileProps = {
@@ -36,7 +35,12 @@ const Profile: React.FC<ProfileProps> = ({ user, isOwner }) => {
 						</div>
 						<div className="d-flex flex-column flex-md-row gap-3 flex-grow-1 align-items-md-center">
 							<p className='fs-5 m-0'>{user?.username}</p>
-							<button className='border-0 py-2 rounded-3 fw-semibold'>Editar perfil</button>
+							{
+								user && isOwner ?
+									<EditProfileModal user={user} />
+									:
+									<ButtonFollow idUser={user?._id!} username={user?.username!} />
+							}
 						</div>
 					</section>
 					<section className='lh-sm px-3 order-md-1'>
