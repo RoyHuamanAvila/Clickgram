@@ -20,9 +20,15 @@ const ProfileContainer = () => {
   }
 
   useEffect(() => {
-    if (username) handleGetUser();
-    setIsOwner(userLogged.username === username)
-  }, [username])
+    if (username) {
+      if (userLogged.username === username) {
+        setUser(userLogged)
+        setIsOwner(true)
+      } else {
+        handleGetUser();
+      }
+    }
+  }, [username, userLogged])
 
   return <Profile user={user} isOwner={isOwner} />
 }

@@ -1,7 +1,28 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { User, UserLogged } from "../../interfaces";
+import { UserLogged } from "../../interfaces";
 import axios from "axios";
 import { toast } from "sonner";
+import { UpdateUserDto } from "../../interfaces/dto";
+
+const token = localStorage.getItem("token");
+
+export const axiosUpdateUser = createAsyncThunk(
+  "user/update",
+  async (objectUser: UpdateUserDto) => {
+    const response = await axios.patch(
+      "http://localhost:3000/user/update",
+      objectUser,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    const data: UpdateUserDto = response.data;
+    return data;
+  }
+);
 
 export const axiosUpdatePicture = createAsyncThunk(
   "user/edit-picture",
@@ -86,10 +107,12 @@ const initialState: UserState = {
     fullname: "",
     picture: "",
     username: "",
+    presentation: "",
     email: "",
     password: "",
     followers: [],
     follows: [],
+    posts: [],
     __v: 0,
   },
 };
@@ -101,6 +124,10 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(axiosGetUser.fulfilled, (state, action) => {
       state.data = action.payload;
+    });
+    builder.addCase(axiosUpdateUser.fulfilled, (state, action) => {
+      state.data = { ...state.data, ...action.payload };
+      toast.success("Se actualizo tu informacion");
     });
     builder.addCase(axiosFollowUser.fulfilled, (state, action) => {
       state.data = action.payload;

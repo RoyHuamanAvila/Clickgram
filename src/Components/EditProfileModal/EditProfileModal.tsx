@@ -1,12 +1,15 @@
 import React from 'react';
 import './EditProfileModal.scss';
 import { UserLogged } from '../../interfaces';
+import { FormikCustom } from '../../interfaces/FormikCustomTypes';
+import { UpdateUserDto } from '../../interfaces/dto';
 
 export type EditProfileModalProps = {
 	user: UserLogged;
+	formik: FormikCustom<UpdateUserDto>
 }
 
-const EditProfileModal: React.FC<EditProfileModalProps> = ({ user }) => {
+const EditProfileModal: React.FC<EditProfileModalProps> = ({ user, formik }) => {
 	return (
 		<>
 			<button type="button" className="btn btn-stroke fw-semibold text-dark" data-bs-toggle="modal" data-bs-target="#editProfileModal">
@@ -21,7 +24,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ user }) => {
 							<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div className="modal-body">
-							<form className='d-flex flex-column align-items-start px-2 gap-4'>
+							<form className='d-flex flex-column align-items-start px-2 gap-4' onSubmit={formik.handleSubmit}>
 								<div className="d-flex align-items-center gap-2">
 									<img src={user.picture} alt="User picture" className='editprofile-userpicture' />
 									<div className="editprofile-changepicture">
@@ -38,6 +41,8 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ user }) => {
 										placeholder='Añade tu presentación'
 										maxLength={150}
 										rows={3}
+										onChange={formik.handleChange}
+										value={formik.values.presentation}
 									/>
 								</div>
 								<button type="submit" className="btn btn-secondary text-primary fw-semibold align-self-center">Enviar</button>
