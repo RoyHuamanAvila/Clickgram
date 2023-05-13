@@ -1,12 +1,12 @@
 import React from 'react';
 import './styles/PostModal.scss';
-import { PostProps } from '../../interfaces';
-import { PostHeader } from '../PostHeader';
-import { Carousel } from '../Carousel';
-import { PostInteractive } from '../PostInteractive';
-import { LikeButtonProps } from '../LikeButton/LikeButton';
-import { InputComment } from '../InputComment';
-import { Comment } from '../Comment';
+import { PostProps } from '../../../interfaces';
+import { PostHeader } from '../../PostHeader';
+import { Carousel } from '../../Carousel';
+import { PostInteractive } from '../../PostInteractive';
+import { LikeButtonProps } from '../../LikeButton/LikeButton';
+import { InputComment } from '../../InputComment';
+import { Comment } from '../../Comment';
 export interface PostModalProps {
 	postData: PostProps;
 	likeButton: LikeButtonProps;

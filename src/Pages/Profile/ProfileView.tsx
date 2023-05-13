@@ -3,7 +3,7 @@ import './Profile.scss';
 import { UserPicture } from '../../Components';
 import { UserLogged } from '../../interfaces';
 import { withChangePicture } from '../../HOC_Components/WithChangePicture/WithChangePicture';
-import { EditProfileModal } from '../../Components/EditProfileModal';
+import { EditProfileModal } from '../../Components/Modals/EditProfileModal';
 import { ButtonFollow } from '../../Components/Buttons';
 
 

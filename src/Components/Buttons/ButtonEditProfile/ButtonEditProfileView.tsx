@@ -1,6 +1,6 @@
 import React from 'react';
 import './ButtonEditProfile.scss';
-import { EditProfileModal } from '../../EditProfileModal';
+import { EditProfileModal } from '../../Modals/EditProfileModal';
 
 export type ButtonEditProfileProps = {
 }
