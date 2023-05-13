@@ -19,14 +19,14 @@ const Profile: React.FC<ProfileProps> = ({ user, isOwner }) => {
 	return (
 		<div className="profile">
 			<div className="d-flex px-md-3 pb-md-3 justify-content-center">
-				<div className='flex-grow-1 d-none d-md-block'>
+				<div className='d-none d-md-block me-5'>
 					<div className="d-flex justify-content-center">
 						{
 							isOwner ? <ChangePictureUser_MD /> : <UserPicture picture={user?.picture} username={user?.username} size='150px' />
 						}
 					</div>
 				</div>
-				<header className='profile-header gap-3 flex-grow-2'>
+				<header className='profile-header gap-3 flex-grow-1'>
 					<section className='d-flex gap-3 align-items-center w-100 px-3'>
 						<div className='d-md-none'>
 							{
@@ -37,7 +37,7 @@ const Profile: React.FC<ProfileProps> = ({ user, isOwner }) => {
 							<p className='fs-5 m-0'>{user?.username}</p>
 							{
 								user && isOwner ?
-									<EditProfileModal user={user} />
+									<EditProfileModal />
 									:
 									<ButtonFollow idUser={user?._id!} username={user?.username!} />
 							}
@@ -46,8 +46,7 @@ const Profile: React.FC<ProfileProps> = ({ user, isOwner }) => {
 					<section className='lh-sm px-3 order-md-1'>
 						<p className='fw-semibold m-0'>{user?.fullname}</p>
 						<p className=''>
-							🇵🇪 Web developer <br />
-							Si no puedes soportar este lugar llévate a ti mismo a lugares más altos 📈
+							{user?.presentation}
 						</p>
 					</section>
 					<section className='profile-stats px-md-3'>

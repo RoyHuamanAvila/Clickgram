@@ -1,1 +1,1 @@
-export { default as EditProfileModal } from './EditProfileModal';
+export { default as EditProfileModal } from "./EditProfileModalContainer";

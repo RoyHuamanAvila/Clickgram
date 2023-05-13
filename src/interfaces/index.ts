@@ -3,6 +3,7 @@ export interface UserLogged {
   email: string;
   username: string;
   fullname: string;
+  presentation: string;
   password: string;
   picture: string;
   follows: string[];
