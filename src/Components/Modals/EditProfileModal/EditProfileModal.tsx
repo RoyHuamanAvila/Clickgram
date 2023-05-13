@@ -1,8 +1,8 @@
 import React from 'react';
 import './EditProfileModal.scss';
-import { UserLogged } from '../../interfaces';
-import { FormikCustom } from '../../interfaces/FormikCustomTypes';
-import { UpdateUserDto } from '../../interfaces/dto';
+import { UserLogged } from '../../../interfaces';
+import { FormikCustom } from '../../../interfaces/FormikCustomTypes';
+import { UpdateUserDto } from '../../../interfaces/dto';
 
 export type EditProfileModalProps = {
 	user: UserLogged;

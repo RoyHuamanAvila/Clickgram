@@ -9,7 +9,6 @@ export * from "./Navbar";
 export * from "./Post";
 export * from "./PostHeader";
 export * from "./PostInteractive";
-export * from "./PostModal";
 export * from "./SavePostButton";
 export * from "./Sidebar";
 export * from "./Suggestions";

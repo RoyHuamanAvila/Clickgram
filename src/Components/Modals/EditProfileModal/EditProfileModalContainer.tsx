@@ -1,8 +1,8 @@
 import EditProfileModal from './EditProfileModal'
-import { useAppDispatch, useAppSelector } from '../../hooks'
+import { useAppDispatch, useAppSelector } from '../../../hooks'
 import { useFormik } from 'formik';
-import { UpdateUserDto } from '../../interfaces/dto';
-import { axiosUpdateUser } from '../../features/user/userSlice';
+import { UpdateUserDto } from '../../../interfaces/dto';
+import { axiosUpdateUser } from '../../../features/user/userSlice';
 import * as yup from 'yup';
 
 
