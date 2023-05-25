@@ -13,3 +13,8 @@ export interface RegisterAuthDto {
 export interface UpdateUserDto {
   presentation: string;
 }
+
+export interface CreatePostDto {
+  description: string;
+  files: File[] | null;
+}

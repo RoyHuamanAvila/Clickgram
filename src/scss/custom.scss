@@ -6,6 +6,7 @@ $background: colors.$background;
 $stroke: colors.$stroke;
 $gray: colors.$gray;
 $dark: colors.$dark;
+$error: colors.$error;
 
 $theme-colors: (
   "primary": $primary,
@@ -14,10 +15,11 @@ $theme-colors: (
   "stroke": $stroke,
   "gray": $gray,
   "dark": $dark,
+  "error": $error
 );
 
 body {
-  background: $background;
+  background: $background !important;
   color: $dark !important;
 }
 
