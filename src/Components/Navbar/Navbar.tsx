@@ -17,9 +17,9 @@ export const NavbarContainer: React.FC<NavbarContainerProps> = () => {
 				<NavbarItem label='Inicio' toPath='/'>
 					<i className="bi bi-house-door-fill"></i>
 				</NavbarItem>
-				<NavbarItem label='Create' toPath='/create'>
-					<i className="bi bi-plus-square"></i>
-				</NavbarItem>
+				<button type="button" className="p-0 bg-transparent border-0 text-primary navbar-item" data-bs-toggle="modal" data-bs-target="#createPostModal">
+					<i className="bi bi-plus-square"></i> <span>Create</span>
+				</button>
 				<NavbarItem label='Perfil' toPath={`/${username}`}>
 					<img src={picture} alt="User photo" />
 				</NavbarItem>

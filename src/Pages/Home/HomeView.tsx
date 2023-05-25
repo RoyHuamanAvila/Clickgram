@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/Home.scss';
-import { AccountWidget, Suggestions, Post } from '../../Components';
+import { AccountWidget, Post } from '../../Components';
 import { PostProps } from '../../interfaces';
 export interface HomeProps {
 	posts: PostProps[];

@@ -1,0 +1,16 @@
+@use 'src/scss/colors';
+
+.createPostModal {
+  textarea {
+    outline: 0;
+
+    &::placeholder {
+      color: colors.$gray;
+    }
+  }
+}
+
+.searchImagesIcon {
+  width: 100px;
+  height: 100px;
+}

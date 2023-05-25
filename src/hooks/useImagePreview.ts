@@ -1,24 +1,41 @@
-import { useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 
 export interface UseImagePreviewConfig {
   initialState: File;
 }
 
 const useImagePreview = () => {
-  const [file, setFile] = useState<File>();
-  const [imagePath, setImagePath] = useState<string>();
+  const [imagesPaths, setImagesPaths] = useState<string[]>([]);
+  const [files, setFiles] = useState<File[] | null>(null);
 
-  const selectFile = (file: File) => {
-    setFile(file);
+  const selectFiles = (e: FormEvent<HTMLInputElement>) => {
+    const fileList = e.currentTarget.files;
+    let paths: string[] = [];
+    let files: File[] = [];
+
+    if (fileList) {
+      for (let i = 0; i < fileList?.length; i++) {
+        const file = fileList[i];
+        if (file.size <= 8 * 1024 * 1024) {
+          if (file.type === "image/jpeg" || file.type === "image/png") {
+            let url = URL.createObjectURL(file);
+            paths.push(url);
+            files.push(file);
+          }
+        }
+      }
+    }
+
+    setFiles(files);
+    setImagesPaths(paths);
   };
 
-  useEffect(() => {
-    if (!file) return;
-    const imagePath = URL.createObjectURL(file);
-    setImagePath(imagePath);
-  }, [file]);
+  const cleanPaths = () => {
+    setFiles(null);
+    setImagesPaths([]);
+  };
 
-  return { imagePath, selectFile };
+  return { imagesPaths, selectFiles, cleanPaths, files };
 };
 
 export default useImagePreview;
