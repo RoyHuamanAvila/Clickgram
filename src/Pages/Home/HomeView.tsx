@@ -11,7 +11,7 @@ const Home: React.FC<HomeProps> = ({ posts }) => {
 		<div className='home'>
 			<div className="home-content">
 				{
-					posts.map(post => <Post post={post} />)
+					posts.map(post => <Post post={post} key={post._id} />)
 				}
 			</div>
 			<aside className="home-aside">

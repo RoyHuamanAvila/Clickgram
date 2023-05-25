@@ -10,7 +10,6 @@ const HomeContainer = () => {
     const response = await axios.get(`http://localhost:3000/post`);
     const data = await response.data;
 
-    console.log(data)
     setPosts(data);
   }
 
