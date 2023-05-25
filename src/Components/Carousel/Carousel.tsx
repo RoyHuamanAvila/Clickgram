@@ -15,7 +15,7 @@ const Carousel: React.FC<CarouselProps> = ({ contents, id }) => {
 			</div>
 			<div className="carousel-inner h-100">
 				{
-					contents.map((content, index) => <CarouselItem index={index} content={content} />)
+					contents.map((content, index) => <CarouselItem key={index} index={index} content={content} />)
 				}
 			</div>
 			{
