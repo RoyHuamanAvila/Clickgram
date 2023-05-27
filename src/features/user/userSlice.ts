@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { UserLogged } from "../../interfaces";
 import axios from "axios";
 import { toast } from "sonner";
-import { UpdateUserDto } from "../../interfaces/dto";
+import { CreatePostDto, UpdateUserDto } from "../../interfaces/dto";
 
 const token = localStorage.getItem("token");
 
@@ -97,6 +97,31 @@ export const axiosUnfollowUser = createAsyncThunk(
   }
 );
 
+export const axiosCreatePost = createAsyncThunk(
+  "post/create",
+  async ({ description, files }: CreatePostDto) => {
+    let formData = new FormData();
+    formData.append("description", description);
+    if (files) {
+      for (let i = 0; i < files.length; i++) {
+        formData.append("files", files[i]);
+      }
+      console.log(formData.getAll("files").length);
+      const response = await axios.post(
+        "http://localhost:3000/post",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const data = response.data;
+      return data;
+    }
+  }
+);
 export interface UserState {
   data: UserLogged;
 }
@@ -143,6 +168,9 @@ const userSlice = createSlice({
     builder.addCase(axiosUpdatePicture.fulfilled, (state, action) => {
       state.data.picture = action.payload;
       toast.success("Se cambio su foto de perfil");
+    });
+    builder.addCase(axiosCreatePost.fulfilled, (state, action) => {
+      toast.success("Se publico un nuevo post");
     });
   },
 });
