@@ -1,9 +1,10 @@
-import { FormEvent, useEffect } from 'react';
-import { useAppSelector, useImagePreview } from '../../../hooks'
+import { FormEvent } from 'react';
+import { useAppDispatch, useAppSelector, useImagePreview } from '../../../hooks'
 import CreatePostModalView from './CreatePostModaView'
 import { useFormik } from 'formik';
 import { CreatePostDto } from '../../../interfaces/dto';
 import * as yup from 'yup';
+import { axiosCreatePost } from '../../../features/user/userSlice';
 
 const initialValues: CreatePostDto = {
   description: '',
@@ -13,6 +14,7 @@ const initialValues: CreatePostDto = {
 const CreatePostModalContainer = () => {
   const { imagesPaths, selectFiles, cleanPaths, files } = useImagePreview();
   const user = useAppSelector(state => state.user.data);
+  const dispatch = useAppDispatch();
 
   const formik = useFormik({
     initialValues,
@@ -27,8 +29,10 @@ const CreatePostModalContainer = () => {
         .max(150, "La descripcion no debe ser mayor de 150 caracteres")
         .required("Escribe una descripción")
     }),
-    onSubmit: (values) => {
-      console.log(values)
+    onSubmit: (values, { resetForm }) => {
+      dispatch(axiosCreatePost(values));
+      resetForm();
+      cleanPaths();
     }
   })
 
