@@ -3,6 +3,9 @@
     "development"
   ],
   "hints": {
-    "axe/parsing": "off"
+    "axe/parsing": "off",
+    "typescript-config/consistent-casing": "off",
+    "typescript-config/strict": "off",
+    "no-inline-styles": "off"
   }
 }
