@@ -28,7 +28,7 @@ const ProfileContainer = () => {
     }
   }, [username, userLogged])
 
-  return user && <Profile user={user} isOwner={isOwner} />
+  return user ? <Profile user={user} isOwner={isOwner} /> : <></>
 }
 
 export default ProfileContainer

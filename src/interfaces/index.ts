@@ -1,3 +1,11 @@
+export interface DecodedToken {
+  exp: number;
+  fullname: string;
+  iat: number;
+  id: string;
+  username: string;
+}
+
 export interface UserLogged {
   _id: string;
   email: string;

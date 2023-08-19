@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { UserLogged } from "../../interfaces";
+import { DecodedToken } from "../../interfaces";
 import { RootState } from "../../app/store";
 import { LoginAuthDto, RegisterAuthDto } from "../../interfaces/dto";
+import { decodeToken, isExpired } from "react-jwt";
 import axios from "axios";
 
 export const axiosLogin = createAsyncThunk(
@@ -37,7 +38,7 @@ export const axiosRegister = createAsyncThunk(
   }
 );
 export interface AuthState {
-  user?: UserLogged;
+  decodedToken?: DecodedToken;
   token?: string;
   isAuthenticated: boolean;
 }
@@ -52,7 +53,22 @@ const authSlice = createSlice({
   reducers: {
     getTokenLocalStorage: (state) => {
       const token = localStorage.getItem("token");
-      state.token = token!;
+      if (token) state.token = token;
+    },
+    authenticateUser: (state) => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        const decodedToken = decodeToken(token);
+        const expired = isExpired(token);
+        if (decodedToken && !expired) {
+          state.isAuthenticated = true;
+          state.decodedToken = decodedToken as DecodedToken;
+        }
+      }
+    },
+    signOff: (state) => {
+      localStorage.removeItem("token");
+      state.isAuthenticated = false;
     },
   },
   extraReducers: (builder) => {
@@ -62,6 +78,10 @@ const authSlice = createSlice({
   },
 });
 
-export const { getTokenLocalStorage: getToken } = authSlice.actions;
+export const {
+  getTokenLocalStorage: getToken,
+  authenticateUser,
+  signOff,
+} = authSlice.actions;
 export const selectToken = (state: RootState) => state.application.token;
 export default authSlice.reducer;

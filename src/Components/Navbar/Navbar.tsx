@@ -1,13 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 import './Navbar.scss';
-import { useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { signOff } from '../../features/application/authSlice';
 
 export interface NavbarContainerProps {
 }
 
 export const NavbarContainer: React.FC<NavbarContainerProps> = () => {
 	const { username, picture } = useAppSelector(state => state.user.data);
+	const dispatch = useAppDispatch();
+
+	const handleSignOff = () => {
+		dispatch(signOff());
+	}
 
 	return (
 		<div className="navbar-container">
@@ -24,9 +30,9 @@ export const NavbarContainer: React.FC<NavbarContainerProps> = () => {
 					<img src={picture} alt="User photo" />
 				</NavbarItem>
 			</div>
-			<div className="navbar-item">
+			<button className="navbar-item" onClick={handleSignOff}>
 				<i className="bi bi-box-arrow-right"></i> <span>Cerrar sesión</span>
-			</div>
+			</button>
 		</div>
 	)
 }
