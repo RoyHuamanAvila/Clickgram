@@ -3,14 +3,15 @@ import './scss/custom.scss'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from './hooks'
 import { useEffect } from 'react'
-import { getToken } from './features/application/authSlice'
 import { Toaster } from 'sonner'
-import { axiosGetUser } from './features/user/userSlice'
 import { PrivateRoute } from './Routes'
 import { Home, Login, PagesContainer, Profile, Register } from './Pages';
+import { authenticateUser } from './features/application/authSlice'
+import { axiosGetUser } from './features/user/userSlice'
 
 function App() {
-  const { isAuthenticated, user } = useAppSelector((state) => state.application);
+  const { isAuthenticated, decodedToken } = useAppSelector((state) => state.application);
+
   const dispatch = useAppDispatch();
 
   const router = createBrowserRouter([
@@ -25,11 +26,8 @@ function App() {
   ])
 
   useEffect(() => {
-    dispatch(getToken());
-  }, [])
-
-  useEffect(() => {
-    if (isAuthenticated && user?._id) dispatch(axiosGetUser(user._id))
+    dispatch(authenticateUser())
+    if (decodedToken) dispatch(axiosGetUser(decodedToken?.id))
   }, [isAuthenticated])
 
   return (
