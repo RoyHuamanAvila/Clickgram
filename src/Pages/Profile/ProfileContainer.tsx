@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react"
 import Profile from "./ProfileView"
 import { UserLogged } from "../../interfaces"
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { axiosGetUser, axiosGetUserByUsername } from "../../features/user/userSlice";
+import { useAppSelector } from "../../hooks";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const ProfileContainer = () => {
   const [user, setUser] = useState<UserLogged>();
-  const dispatch = useAppDispatch();
   const { username } = useParams();
   const userLogged = useAppSelector(state => state.user.data);
   const [isOwner, setIsOwner] = useState<boolean>(false);

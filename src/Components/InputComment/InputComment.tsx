@@ -16,7 +16,7 @@ const InputComment: React.FC<InputCommentProps> = () => {
 	}
 
 	const handleSendComment = () => {
-		let trimmedComment = removeExtraSpaces(comment);
+		const trimmedComment = removeExtraSpaces(comment);
 		handleAddComment(trimmedComment);
 		setComment('')
 	}

@@ -1,15 +1,11 @@
-import React from 'react';
 import './ButtonEditProfile.scss';
 import { EditProfileModal } from '../../Modals/EditProfileModal';
 
-export type ButtonEditProfileProps = {
-}
-
-const ButtonEditProfile: React.FC<ButtonEditProfileProps> = () => {
+const ButtonEditProfile = () => {
 	return (
 		<div className="editprofile-container">
 			<button className='ButtonEditProfile' data-bs-toggle="modal" data-bs-target="#editProfileModal">Editar Perfil</button>
-			<EditProfileModal id='editProfile' />
+			<EditProfileModal />
 		</div>
 	);
 };

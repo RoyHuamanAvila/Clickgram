@@ -30,7 +30,9 @@ const SuggestionItem: React.FC<SuggestionItemProps> = ({ user }) => (
 				<p className='suggestionitem-fullname'>{user.fullname}</p>
 			</div>
 		</div>
-		<ButtonFollowContainer idUser={user?._id!} username={user.username} />
+		{
+			user?._id && <ButtonFollowContainer idUser={user._id} username={user.username} />
+		}
 	</div>
 )
 

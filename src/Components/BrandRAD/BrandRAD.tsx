@@ -1,10 +1,6 @@
-import React from 'react';
 import './BrandRAD.scss';
 
-export type BrandRADProps = {
-}
-
-const BrandRAD: React.FC<BrandRADProps> = () => {
+const BrandRAD = () => {
 	return (
 		<div className='brand-container'>
 			<img src="/RoyAndresDev.webp" alt="brand icon" />

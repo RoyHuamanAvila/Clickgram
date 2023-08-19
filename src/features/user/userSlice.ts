@@ -27,7 +27,7 @@ export const axiosUpdateUser = createAsyncThunk(
 export const axiosUpdatePicture = createAsyncThunk(
   "user/edit-picture",
   async (file: File) => {
-    let pictureFormData = new FormData();
+    const pictureFormData = new FormData();
     pictureFormData.append("picture", file);
     const response = await axios.patch(
       "http://localhost:3000/user/edit/picture",
@@ -100,7 +100,7 @@ export const axiosUnfollowUser = createAsyncThunk(
 export const axiosCreatePost = createAsyncThunk(
   "post/create",
   async ({ description, files }: CreatePostDto) => {
-    let formData = new FormData();
+    const formData = new FormData();
     formData.append("description", description);
     if (files) {
       for (let i = 0; i < files.length; i++) {
@@ -169,7 +169,7 @@ const userSlice = createSlice({
       state.data.picture = action.payload;
       toast.success("Se cambio su foto de perfil");
     });
-    builder.addCase(axiosCreatePost.fulfilled, (state, action) => {
+    builder.addCase(axiosCreatePost.fulfilled, () => {
       toast.success("Se publico un nuevo post");
     });
   },

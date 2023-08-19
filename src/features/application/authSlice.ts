@@ -2,8 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { UserLogged } from "../../interfaces";
 import { RootState } from "../../app/store";
 import { LoginAuthDto, RegisterAuthDto } from "../../interfaces/dto";
-import axios, { AxiosError } from "axios";
-import { toast } from "sonner";
+import axios from "axios";
 
 export const axiosLogin = createAsyncThunk(
   "auth/login",
@@ -16,9 +15,8 @@ export const axiosLogin = createAsyncThunk(
       const data = await response.data;
       localStorage.setItem("token", data.token);
       return data;
-    } catch (error: any) {
-      toast.error(error.response.data.message);
-      throw new Error(error.response.data.message);
+    } catch (error) {
+      console.log(error);
     }
   }
 );
@@ -33,9 +31,8 @@ export const axiosRegister = createAsyncThunk(
       );
       const data = await response.data;
       return data;
-    } catch (error: any) {
-      toast.error(error.response.data.message);
-      throw new Error(error.response.data.message);
+    } catch (error) {
+      console.log(error);
     }
   }
 );

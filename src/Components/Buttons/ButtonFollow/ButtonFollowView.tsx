@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react';
+import { FC } from 'react';
 import './ButtonFollow.scss';
 
 export type ButtonFollowProps = {
@@ -8,7 +8,7 @@ export type ButtonFollowProps = {
 	handleUnfollow: () => void;
 }
 
-const ButtonFollow: React.FC<ButtonFollowProps> = ({ handleUnfollow, handleFollow, isFollowed, loading }) => {
+const ButtonFollow: FC<ButtonFollowProps> = ({ handleUnfollow, handleFollow, isFollowed, loading }) => {
 	return (
 		isFollowed ?
 			<button className='ButtonUnfollow' onClick={handleUnfollow} disabled={loading}>

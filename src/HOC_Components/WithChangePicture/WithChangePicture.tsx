@@ -1,6 +1,5 @@
-import React, { ComponentType, FormEvent, useEffect, useState } from 'react';
+import React, { ComponentType, FormEvent } from 'react';
 import './WithChangePicture.scss';
-import useImagePreview from '../../hooks/useImagePreview';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { axiosUpdatePicture } from '../../features/user/userSlice';
 
@@ -9,7 +8,7 @@ export type ChangePictureConfig = {
 	picture: string;
 }
 
-export function withChangePicture<T extends {}>(WrappedComponent: ComponentType<T>, config: ChangePictureConfig) {
+export function withChangePicture<T extends object>(WrappedComponent: ComponentType<T>, config: ChangePictureConfig) {
 	return (props: T) => {
 		const user = useAppSelector(state => state.user.data);
 		const dispatch = useAppDispatch();

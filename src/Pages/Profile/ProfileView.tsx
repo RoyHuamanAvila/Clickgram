@@ -8,13 +8,13 @@ import { ButtonFollow } from '../../Components/Buttons';
 
 
 export type ProfileProps = {
-	user?: UserLogged;
+	user: UserLogged;
 	isOwner: boolean;
 }
 
 const Profile: React.FC<ProfileProps> = ({ user, isOwner }) => {
-	const ChangePictureUser = withChangePicture(UserPicture, { size: '77px', picture: user?.picture! });
-	const ChangePictureUser_MD = withChangePicture(UserPicture, { size: '150px', picture: user?.picture! });
+	const ChangePictureUser = withChangePicture(UserPicture, { size: '77px', picture: user.picture });
+	const ChangePictureUser_MD = withChangePicture(UserPicture, { size: '150px', picture: user.picture });
 
 	return (
 		<div className="profile">
@@ -39,7 +39,7 @@ const Profile: React.FC<ProfileProps> = ({ user, isOwner }) => {
 								user && isOwner ?
 									<EditProfileModal />
 									:
-									<ButtonFollow idUser={user?._id!} username={user?.username!} />
+									<ButtonFollow idUser={user._id} username={user.username} />
 							}
 						</div>
 					</section>

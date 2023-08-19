@@ -3,15 +3,12 @@ import './AccountWidget.scss';
 import { UserPicture } from '../UserPicture';
 import { useAppSelector } from '../../hooks';
 
-export type AccountWidgetProps = {
-}
-
-const AccountWidget: React.FC<AccountWidgetProps> = () => {
+const AccountWidget = () => {
 	const user = useAppSelector(state => state.user.data);
 	return (
 		<div className='AccountWidget'>
 			<div className="AccountWidget-ownerinfo">
-				<UserPicture picture={user?.picture} username={user?.username!} />
+				<UserPicture picture={user?.picture} username={user?.username} />
 				<div className='ownerinfo-names'>
 					<p className='ownerinfo-username'>{user?.username}</p>
 					<p className='ownerinfo-fullname'>{user?.fullname}</p>

@@ -1,10 +1,6 @@
-import React from 'react';
 import './InputChangePicture.scss';
 
-export type InputChangePictureProps = {
-}
-
-const InputChangePicture: React.FC<InputChangePictureProps> = () => {
+const InputChangePicture = () => {
 	return (
 		<div className='InputChangePicture'>
 			<input

@@ -1,6 +1,5 @@
 import React from 'react';
 import './Login.scss';
-import { BrandRAD } from '../../Components/BrandRAD';
 import { Link } from 'react-router-dom'
 import { LoginAuthDto } from '../../interfaces/dto';
 import { FormikForm } from '../../interfaces/FormikCustomTypes';

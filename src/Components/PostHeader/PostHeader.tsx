@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/PostHeader.scss';
-import { PostOwner, User } from '../../interfaces';
+import { PostOwner } from '../../interfaces';
 import { UserPicture } from '../UserPicture';
 export interface PostHeaderProps {
 	owner: PostOwner;
