@@ -1,13 +1,12 @@
-import React, { useCallback, useEffect } from 'react';
+import { FC } from 'react';
 import './styles/LikeButton.scss';
-import { useToggle } from '../../hooks';
 export interface LikeButtonProps {
 	handleLikePost: () => void;
 	liked: boolean;
 	likeCounter: number;
 }
 
-const LikeButton: React.FC<LikeButtonProps> = ({ handleLikePost, liked }) => {
+const LikeButton: FC<LikeButtonProps> = ({ handleLikePost, liked }) => {
 	return (
 		<button className='likebutton' title='Like' onClick={handleLikePost}>
 			{

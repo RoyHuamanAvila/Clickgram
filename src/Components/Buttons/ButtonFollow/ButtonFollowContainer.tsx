@@ -1,15 +1,14 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { useAppDispatch, useAppSelector, useLoading, useToggle } from "../../../hooks"
 import { axiosFollowUser, axiosUnfollowUser } from "../../../features/user/userSlice";
 import ButtonFollow from "./ButtonFollowView";
-import { toast } from "sonner";
 
 export interface ButtonFollowContainerProps {
   idUser: string;
   username: string;
 }
 
-const ButtonFollowContainer: FC<ButtonFollowContainerProps> = ({ idUser, username }) => {
+const ButtonFollowContainer: FC<ButtonFollowContainerProps> = ({ idUser }) => {
   const follows = useAppSelector(state => state.user.data.follows);
   const dispatch = useAppDispatch();
   const { active: followed, handleToggle: handleToggleFollow } = useToggle(follows.includes(idUser));

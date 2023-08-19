@@ -12,7 +12,7 @@ const initialValues: CreatePostDto = {
 }
 
 const CreatePostModalContainer = () => {
-  const { imagesPaths, selectFiles, cleanPaths, files } = useImagePreview();
+  const { imagesPaths, selectFiles, cleanPaths } = useImagePreview();
   const user = useAppSelector(state => state.user.data);
   const dispatch = useAppDispatch();
 
@@ -26,7 +26,7 @@ const CreatePostModalContainer = () => {
           return value.every((file: File) => allowedTypes.includes(file.type))
         }),
       description: yup.string()
-        .max(150, "La descripcion no debe ser mayor de 150 caracteres")
+        .max(150, "La descripción no debe ser mayor de 150 caracteres")
         .required("Escribe una descripción")
     }),
     onSubmit: (values, { resetForm }) => {

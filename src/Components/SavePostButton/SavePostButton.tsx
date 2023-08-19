@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useMemo } from 'react';
+import React, { memo, useCallback } from 'react';
 import './styles/SavePostButton.scss';
 import { useToggle } from '../../hooks';
 export interface SavePostButtonProps {

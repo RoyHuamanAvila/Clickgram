@@ -1,10 +1,6 @@
-import React from 'react';
 import './ProfileNavbar.scss';
 
-export type ProfileNavbarProps = {
-}
-
-const ProfileNavbar: React.FC<ProfileNavbarProps> = () => {
+const ProfileNavbar = () => {
 	return (
 		<div className='ProfileNavbar'>
 			<p className='fw-bold'>

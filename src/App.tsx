@@ -29,7 +29,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if (isAuthenticated) dispatch(axiosGetUser(user?._id!))
+    if (isAuthenticated && user?._id) dispatch(axiosGetUser(user._id))
   }, [isAuthenticated])
 
   return (
