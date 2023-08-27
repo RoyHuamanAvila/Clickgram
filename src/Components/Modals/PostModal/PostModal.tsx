@@ -17,18 +17,18 @@ const PostModal: FC<PostModalProps> = ({ data, Carousel, PostHeader, PostControl
 		<>
 			<div className="modal modal-xl fade" id={`${_id}modal`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div className="modal-dialog modal-dialog-centered">
-					<div className="modal-content dark">
+					<div className="modal-content">
 						<div className="modal-content-section">
 							{Carousel}
 						</div>
 						<div className="modal-content-section">
-							<div className="modal-header">
+							<div className="p-3 border-bottom mb-2">
 								{PostHeader}
 							</div>
 							<div className="modal-comments">
 								<Comment owner={owner} content={description} />
 							</div>
-							<div className="modal-interactive">
+							<div className="p-3 border ">
 								{PostControls}
 							</div>
 							<div className="modal-input">
