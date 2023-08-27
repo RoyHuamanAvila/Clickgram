@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles/Comment.scss';
-import { User } from '../../interfaces';
+import { PostOwner } from '../../interfaces';
 import { UserPicture } from '../UserPicture';
 export interface CommentProps {
-	owner: User;
+	owner: PostOwner;
 	content?: string;
 }
 
