@@ -7,10 +7,12 @@ $stroke: colors.$stroke;
 $gray: colors.$gray;
 $dark: colors.$dark;
 $error: colors.$error;
+$accent: colors.$accent;
 
 $theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
+  "accent": $accent,
   "background": $background,
   "stroke": $stroke,
   "gray": $gray,

@@ -14,7 +14,9 @@ interface PostViewProps {
 const PostView: FC<PostViewProps> = ({ data, handleLike }) => {
 	return (
 		<div className="post">
-			<PostHeader owner={data.owner} />
+			<div className="px-2">
+				<PostHeader owner={data.owner} />
+			</div>
 			<div className="post-content">
 				<Carousel contents={data.content} id={data._id} />
 			</div>

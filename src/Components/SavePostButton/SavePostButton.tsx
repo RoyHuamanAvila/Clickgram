@@ -22,7 +22,7 @@ const SavePostButton: React.FC<SavePostButtonProps> = ({ saved }) => {
 	return (
 		<button className='savepostbutton fs-4' title='Save Post' onClick={handleSavePost}>
 			{
-				active ? <i className="bi bi-bookmark-fill"></i> : <i className="bi bi-bookmark"></i>
+				active ? <i className="bi bi-bookmark-fill text-accent"></i> : <i className="bi bi-bookmark"></i>
 			}
 		</button>
 	);
