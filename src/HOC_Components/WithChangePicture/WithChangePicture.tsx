@@ -33,3 +33,5 @@ export function withChangePicture<T extends object>(WrappedComponent: ComponentT
 	}
 }
 
+
+export default withChangePicture
