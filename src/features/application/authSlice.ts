@@ -10,7 +10,7 @@ export const axiosLogin = createAsyncThunk(
   async (userObject: LoginAuthDto) => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/auth/login`,
+        `${import.meta.env.VITE_DATABASE_URL}/auth/login`,
         userObject
       );
       const data = await response.data;
@@ -27,7 +27,7 @@ export const axiosRegister = createAsyncThunk(
   async (userObject: RegisterAuthDto) => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/auth/register`,
+        `${import.meta.env.VITE_DATABASE_URL}/auth/register`,
         userObject
       );
       const data = await response.data;

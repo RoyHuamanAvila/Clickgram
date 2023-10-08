@@ -10,7 +10,7 @@ export const axiosUpdateUser = createAsyncThunk(
   "user/update",
   async (objectUser: UpdateUserDto) => {
     const response = await axios.patch(
-      "http://localhost:3000/user/update",
+      `${import.meta.env.VITE_DATABASE_URL}/user/update`,
       objectUser,
       {
         headers: {
@@ -30,7 +30,7 @@ export const axiosUpdatePicture = createAsyncThunk(
     const pictureFormData = new FormData();
     pictureFormData.append("picture", file);
     const response = await axios.patch(
-      "http://localhost:3000/user/edit/picture",
+      `${import.meta.env.VITE_DATABASE_URL}/user/edit/picture`,
       pictureFormData,
       {
         headers: {
@@ -45,7 +45,9 @@ export const axiosUpdatePicture = createAsyncThunk(
 );
 
 export const axiosGetUser = createAsyncThunk("user/get", async (id: string) => {
-  const response = await axios.get(`http://localhost:3000/user/${id}`);
+  const response = await axios.get(
+    `${import.meta.env.VITE_DATABASE_URL}/user/${id}`
+  );
   const data = await response.data;
 
   return data;
@@ -55,7 +57,7 @@ export const axiosGetUserByUsername = createAsyncThunk(
   "user/getUserByUsername",
   async (username: string) => {
     const response = await axios.get(
-      `http://localhost:3000/user/username/${username}`
+      `${import.meta.env.VITE_DATABASE_URL}/user/username/${username}`
     );
     const data = await response.data;
 
@@ -67,7 +69,7 @@ export const axiosFollowUser = createAsyncThunk(
   "user/follow",
   async (idToFollow: string) => {
     const response = await axios.patch(
-      `http://localhost:3000/user/follow/${idToFollow}`,
+      `${import.meta.env.VITE_DATABASE_URL}/user/follow/${idToFollow}`,
       {},
       {
         headers: {
@@ -84,7 +86,7 @@ export const axiosUnfollowUser = createAsyncThunk(
   "user/unfollow",
   async (idToUnfollow: string) => {
     const response = await axios.patch(
-      `http://localhost:3000/user/unfollow/${idToUnfollow}`,
+      `${import.meta.env.VITE_DATABASE_URL}/user/unfollow/${idToUnfollow}`,
       {},
       {
         headers: {
@@ -108,7 +110,7 @@ export const axiosCreatePost = createAsyncThunk(
       }
       console.log(formData.getAll("files").length);
       const response = await axios.post(
-        "http://localhost:3000/post",
+        `${import.meta.env.VITE_DATABASE_URL}/post`,
         formData,
         {
           headers: {
