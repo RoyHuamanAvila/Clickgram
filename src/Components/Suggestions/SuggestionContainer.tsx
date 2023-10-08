@@ -9,7 +9,7 @@ const SuggestionContainer = () => {
   const token = useAppSelector(state => state.application.token);
 
   const getUsers = async () => {
-    const response = await axios.get(`http://localhost:3000/user`, {
+    const response = await axios.get(`${import.meta.env.VITE_DATABASE_URL}/user`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

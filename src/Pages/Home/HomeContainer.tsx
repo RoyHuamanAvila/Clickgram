@@ -7,7 +7,7 @@ const HomeContainer = () => {
   const [posts, setPosts] = useState<PostProps[]>([]);
 
   const handleGetPosts = async () => {
-    const response = await axios.get(`http://localhost:3000/post`);
+    const response = await axios.get(`${import.meta.env.VITE_DATABASE_URL}/post`);
     const data = await response.data;
 
     setPosts(data);

@@ -12,7 +12,7 @@ const ProfileContainer = () => {
   const [isOwner, setIsOwner] = useState<boolean>(false);
 
   const handleGetUser = async () => {
-    const response = await axios.get(`http://localhost:3000/user/username/${username}`);
+    const response = await axios.get(`${import.meta.env.VITE_DATABASE_URL}/user/username/${username}`);
     const data = await response.data;
     setUser(data);
   }
