@@ -10,7 +10,7 @@ const AccountWidget = () => {
 			<div className="AccountWidget-ownerinfo">
 				<UserPicture picture={user?.picture} username={user?.username} />
 				<div className='ownerinfo-names'>
-					<p className='ownerinfo-username'>{user?.username}</p>
+					<p className='ownerinfo-username' data-testid='username'>{user?.username}</p>
 					<p className='ownerinfo-fullname'>{user?.fullname}</p>
 				</div>
 			</div>
