@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { DecodedToken } from "../../interfaces";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { DecodedToken, UserLogged } from "../../interfaces";
 import { RootState } from "../../app/store";
 import { LoginAuthDto, RegisterAuthDto } from "../../interfaces/dto";
 import { decodeToken, isExpired } from "react-jwt";
@@ -13,9 +13,8 @@ export const axiosLogin = createAsyncThunk(
         `${import.meta.env.VITE_DATABASE_URL}/auth/login`,
         userObject
       );
-      const data = await response.data;
-      localStorage.setItem("token", data.token);
-      return data;
+      localStorage.setItem("token", response.data.token);
+      return response.data;
     } catch (error) {
       throw new Error("Login failed");
     }
@@ -44,6 +43,7 @@ export interface AuthState {
   decodedToken?: DecodedToken;
   token?: string;
   isAuthenticated: boolean;
+  userId?: string;
 }
 
 const initialState: AuthState = {
@@ -75,10 +75,13 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(axiosLogin.fulfilled, (state, action) => {
-      console.log(action.payload);
-      state.isAuthenticated = true;
-    });
+    builder.addCase(
+      axiosLogin.fulfilled,
+      (state, action: PayloadAction<{ token: string; user: UserLogged }>) => {
+        state.isAuthenticated = true;
+        state.userId = action.payload.user._id;
+      }
+    );
     builder.addCase(axiosLogin.rejected, () => {
       console.log("rejected");
     });

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { axiosLogin, verifyToken } from "../../features/application/authSlice";
+import { axiosLogin } from "../../features/application/authSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks"
 import { LoginAuthDto } from "../../interfaces/dto"
 import Login from "./LoginFormik";
@@ -16,15 +16,13 @@ const initialValues: LoginAuthDto = {
 const LoginContainer = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate()
-  const { isAuthenticated, decodedToken } = useAppSelector((state) => state.application);
+  const { isAuthenticated } = useAppSelector((state) => state.application);
 
   const handleLogin = async (userObject: LoginAuthDto) => {
-    await dispatch(axiosLogin(userObject));
-    await dispatch(verifyToken());
-
-    if (decodedToken) {
-      await dispatch(axiosGetUser(decodedToken?.id))
-    }
+    await dispatch(axiosLogin(userObject)).then((fulfilled) => {
+      const userId = fulfilled.payload.user._id;
+      dispatch(axiosGetUser(userId));
+    });
   }
 
   const formik = useFormik({

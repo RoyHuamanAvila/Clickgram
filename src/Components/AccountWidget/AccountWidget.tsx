@@ -1,10 +1,10 @@
-import React from 'react';
 import './AccountWidget.scss';
 import { UserPicture } from '../UserPicture';
 import { useAppSelector } from '../../hooks';
 
 const AccountWidget = () => {
 	const user = useAppSelector(state => state.user.data);
+
 	return (
 		<div className='AccountWidget'>
 			<div className="AccountWidget-ownerinfo">
@@ -14,7 +14,7 @@ const AccountWidget = () => {
 					<p className='ownerinfo-fullname'>{user?.fullname}</p>
 				</div>
 			</div>
-			<button className='btn-changeaccount'>Cambiar</button>
+			<button className='btn-changeaccount' role='button'>Cambiar</button>
 		</div>
 	);
 };
