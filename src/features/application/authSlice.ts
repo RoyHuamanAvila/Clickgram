@@ -17,7 +17,7 @@ export const axiosLogin = createAsyncThunk(
       localStorage.setItem("token", data.token);
       return data;
     } catch (error) {
-      console.log(error);
+      throw new Error("Login failed");
     }
   }
 );
@@ -30,10 +30,13 @@ export const axiosRegister = createAsyncThunk(
         `${import.meta.env.VITE_DATABASE_URL}/auth/register`,
         userObject
       );
-      const data = await response.data;
-      return data;
+      if (response.status === 200) {
+        return response.data;
+      } else {
+        throw new Error("Login failed");
+      }
     } catch (error) {
-      console.log(error);
+      throw new Error("Login failed");
     }
   }
 );
@@ -55,7 +58,7 @@ const authSlice = createSlice({
       const token = localStorage.getItem("token");
       if (token) state.token = token;
     },
-    authenticateUser: (state) => {
+    verifyToken: (state) => {
       const token = localStorage.getItem("token");
       if (token) {
         const decodedToken = decodeToken(token);
@@ -73,14 +76,18 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(axiosLogin.fulfilled, (state, action) => {
-      return { ...action.payload, isAuthenticated: true };
+      console.log(action.payload);
+      state.isAuthenticated = true;
+    });
+    builder.addCase(axiosLogin.rejected, () => {
+      console.log("rejected");
     });
   },
 });
 
 export const {
   getTokenLocalStorage: getToken,
-  authenticateUser,
+  verifyToken,
   signOff,
 } = authSlice.actions;
 export const selectToken = (state: RootState) => state.application.token;
