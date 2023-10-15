@@ -8,7 +8,7 @@ export interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ posts }) => {
 	return (
-		<div className='home'>
+		<div className='home' id='home' data-testid='home'>
 			<div className="home-content">
 				{
 					posts.map(post => <Post post={post} key={post._id} />)
