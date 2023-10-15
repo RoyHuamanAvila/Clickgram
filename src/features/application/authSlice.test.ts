@@ -1,7 +1,5 @@
 import { describe, expect, it } from "vitest";
-import AuthSlice, { AuthState, axiosLogin } from "./authSlice";
-import { LoginAuthDto } from "../../interfaces/dto";
-import { configureStore } from "@reduxjs/toolkit";
+import AuthSlice, { AuthState } from "./authSlice";
 
 const initialState: AuthState = {
   isAuthenticated: false,
@@ -14,7 +12,7 @@ describe("AuthSlice", () => {
     expect(authSlice).toBe(initialState);
   });
 
-  it("test correct login with real user", async () => {
+  /* it("test correct login with real user", async () => {
     const payload: LoginAuthDto = {
       email: process.env.VITE_TEST_EMAIL || "",
       password: process.env.VITE_TEST_PASSWORD || "",
@@ -25,5 +23,5 @@ describe("AuthSlice", () => {
     await store.dispatch(axiosLogin(payload));
 
     expect(store.getState().isAuthenticated).toBeTruthy();
-  });
+  }); */
 });

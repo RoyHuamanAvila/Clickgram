@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import './Navbar.scss';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { signOff } from '../../features/application/authSlice';
+import { deleteUser } from '../../features/user/userSlice';
 
 export interface NavbarContainerProps {
 }
@@ -13,6 +14,7 @@ export const NavbarContainer: React.FC<NavbarContainerProps> = () => {
 
 	const handleSignOff = () => {
 		dispatch(signOff());
+		dispatch(deleteUser)
 	}
 
 	return (

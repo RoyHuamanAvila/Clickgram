@@ -147,7 +147,11 @@ const initialState: UserState = {
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    deleteUser: (state) => {
+      state.data = initialState.data;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(axiosGetUser.fulfilled, (state, action) => {
       state.data = action.payload;
@@ -177,4 +181,5 @@ const userSlice = createSlice({
   },
 });
 
+export const { deleteUser } = userSlice.actions;
 export default userSlice.reducer;

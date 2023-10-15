@@ -1,21 +1,38 @@
-import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
-import AccountWidget from "./AccountWidget";
-import { Provider } from "react-redux";
-import { store } from "../../app/store";
-import { BrowserRouter } from "react-router-dom";
+import { cleanup, render, screen } from '@testing-library/react';
+import AccountWidget from './AccountWidget';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { BrowserRouter } from 'react-router-dom';
+import * as hooks from '../../hooks';
 
-describe('Account widget', () => {
-  it('Render without crashing', () => {
-    const AccountWidgetRender = render(
-      <Provider store={store}>
-        <AccountWidget />
-      </Provider>, { wrapper: BrowserRouter }
+describe('AccountWidget', () => {
+  const user = {
+    username: 'Furio',
+    fullname: 'Roy Andres',
+    picture: 'https://test.com/image.jpg'
+  }
+
+  afterEach(cleanup)
+
+  beforeEach(() => {
+    const spy = vi.spyOn(hooks, 'useAppSelector');
+    spy.mockReturnValue(user);
+  })
+
+  it('should render user information', () => {
+    render(
+      <AccountWidget />, { wrapper: BrowserRouter }
     );
 
-    const username = screen.getByTestId('username').innerText;
-    console.log('username: ', username)
+    expect(screen.getByTestId('username')).toHaveTextContent(user.username);
+    expect(screen.getByText(user.fullname)).toBeInTheDocument();
+    expect(screen.getByRole('img')).toHaveAttribute('src', user.picture);
+  });
 
-    expect(AccountWidgetRender)
-  })
-})
+  it('should render a "Cambiar" button', () => {
+    render(
+      <AccountWidget />, { wrapper: BrowserRouter }
+    );
+
+    expect(screen.getByRole('button', { name: 'Cambiar' })).toBeInTheDocument();
+  });
+});
