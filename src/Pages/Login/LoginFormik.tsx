@@ -32,7 +32,11 @@ const LoginFormik: React.FC<FormikForm<LoginAuthDto>> = ({ formik }) => {
 								value={formik.values.password}
 							/>
 						</div>
-						<button role='button' type='submit' name='submit' className='login-form-button'>Iniciar sesión</button>
+						<button data-testid='button-login' role='button' type='submit' name='submit' className='login-form-button' disabled={formik.status === 'pending'}>
+							{formik.status === 'pending' ? <div className="spinner-border spinner-border-sm" role="status">
+								<span className="visually-hidden">Loading...</span>
+							</div> : 'Iniciar sesión'}
+						</button>
 						<a href="" className='text-center text-decoration-none'>¿Olvidaste tu contraseña?</a>
 					</form>
 					<div className="redirect">
