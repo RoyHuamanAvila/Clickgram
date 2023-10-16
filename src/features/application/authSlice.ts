@@ -4,10 +4,11 @@ import { RootState } from "../../app/store";
 import { LoginAuthDto, RegisterAuthDto } from "../../interfaces/dto";
 import { decodeToken, isExpired } from "react-jwt";
 import axios from "axios";
+import { toast } from "sonner";
 
 export const axiosLogin = createAsyncThunk(
   "auth/login",
-  async (userObject: LoginAuthDto) => {
+  async (userObject: LoginAuthDto, { rejectWithValue }) => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_DATABASE_URL}/auth/login`,
@@ -16,7 +17,7 @@ export const axiosLogin = createAsyncThunk(
       localStorage.setItem("token", response.data.token);
       return response.data;
     } catch (error) {
-      throw new Error("Login failed");
+      return rejectWithValue(error);
     }
   }
 );
@@ -44,10 +45,14 @@ export interface AuthState {
   token?: string;
   isAuthenticated: boolean;
   userId?: string;
+  status: "idle" | "pending" | "fulfilled" | "rejected";
+  error: string;
 }
 
 const initialState: AuthState = {
   isAuthenticated: false,
+  status: "idle",
+  error: "",
 };
 
 const authSlice = createSlice({
@@ -72,6 +77,7 @@ const authSlice = createSlice({
     signOff: (state) => {
       localStorage.removeItem("token");
       state.isAuthenticated = false;
+      window.location.reload();
     },
   },
   extraReducers: (builder) => {
@@ -79,19 +85,23 @@ const authSlice = createSlice({
       axiosLogin.fulfilled,
       (state, action: PayloadAction<{ token: string; user: UserLogged }>) => {
         state.isAuthenticated = true;
+        state.status = "fulfilled";
         state.userId = action.payload.user._id;
       }
     );
-    builder.addCase(axiosLogin.rejected, () => {
-      console.log("rejected");
+    builder.addCase(axiosLogin.pending, (state) => {
+      state.status = "pending";
+    });
+    builder.addCase(axiosLogin.rejected, (state, action) => {
+      state.status = "rejected";
+      if (action.error) {
+        state.error = action.error.message || "Login failed";
+        toast.error(action.error.message);
+      }
     });
   },
 });
 
-export const {
-  getTokenLocalStorage: getToken,
-  verifyToken,
-  signOff,
-} = authSlice.actions;
+export const { getTokenLocalStorage, verifyToken, signOff } = authSlice.actions;
 export const selectToken = (state: RootState) => state.application.token;
 export default authSlice.reducer;

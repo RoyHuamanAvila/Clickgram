@@ -1,29 +1,38 @@
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, render, screen } from '@testing-library/react'
 import Login from './LoginContainer'
+import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from '../../app/store';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
+import * as hooks from '../../hooks';
+import { AuthState } from '../../features/application/authSlice';
 import { LocationDisplay } from '../../Routes';
-/* import userEvent from '@testing-library/user-event';
-import { createMemoryHistory } from 'history'; */
 
 describe('Login', () => {
-  beforeEach(() => {
-    render(
-      <MemoryRouter initialEntries={['/login']}>
-        <Provider store={store}>
-          <Login />
-        </Provider>
-        <LocationDisplay />
-      </MemoryRouter>
-    );
-  })
+
   afterEach(cleanup);
 
-  it('Render in the correct path', () => {
-    const route = '/login';
+  it('should render location-display', () => {
+    render(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/login']}>
+          <LocationDisplay />
+        </MemoryRouter>
+      </Provider>
+    );
+    const locationDisplay = screen.getByTestId('location-display');
+    expect(locationDisplay).toBeInTheDocument();
+  })
 
+  it('Render in the correct path', () => {
+    render(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/login']}>
+          <LocationDisplay />
+        </MemoryRouter>
+      </Provider>
+    );
+    const route = '/login';
     expect(screen.getByTestId('location-display')).toHaveTextContent(route)
   })
 
@@ -35,10 +44,17 @@ describe('Login', () => {
     );
 
     expect(LoginRender);
-    //screen.debug()
   })
 
   it('should handle initial state of form', () => {
+    render(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/login']}>
+          <LocationDisplay />
+          <Login />
+        </MemoryRouter>
+      </Provider>
+    );
     const email = screen.getByRole('textbox', { name: /email/i }).textContent;
     const password = screen.getByRole('textbox', { name: /password/i }).textContent;
 
@@ -46,14 +62,71 @@ describe('Login', () => {
     expect(password).toEqual('');
   })
 
-  /*   it('should correctly login', async () => {
-      const user = userEvent.setup();
-      const history = createMemoryHistory({initialEntries: ['/login']});
-  
-      await user.type(screen.getByRole('textbox', { name: /email/i }), 'rhavila789@gmail.com');
-      await user.type(screen.getByRole('textbox', { name: /password/i }), '72674560');
-      await user.click(screen.getByRole('button', { name: /iniciar sesión/i }));
-  
-      expect(await screen.findByTestId('home', undefined, { timeout: 35000 })).toBeInTheDocument()
-    }) */
+  it('should redirect when is authenticated', async () => {
+    const state: AuthState = {
+      isAuthenticated: true,
+      status: 'fulfilled',
+      error: ""
+    }
+    const spy = vi.spyOn(hooks, 'useAppSelector');
+    spy.mockReturnValue(state);
+
+    render(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/login']}>
+          <LocationDisplay />
+          <Login />
+        </MemoryRouter>
+      </Provider>
+    );
+
+    const locationPath = screen.getByTestId('location-display').textContent;
+    expect(locationPath).toEqual('/');
+  });
+
+  it('should render loading when login is pending', async () => {
+    const state: AuthState = {
+      isAuthenticated: false,
+      status: 'pending',
+      error: "",
+    }
+
+    const spy = vi.spyOn(hooks, 'useAppSelector');
+    spy.mockReturnValue(state);
+
+    render(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/login']}>
+          <LocationDisplay />
+          <Login />
+        </MemoryRouter>
+      </Provider>
+    );
+
+    expect(screen.getByRole('status')).toBeInTheDocument();
+    expect(screen.getByTestId('button-login')).toBeDisabled();
+  });
+
+  /* it('should render error toast when login fails', async () => {
+    const state: AuthState = {
+      isAuthenticated: false,
+      status: 'rejected',
+      error: 'error'
+    }
+    const spy = vi.spyOn(hooks, 'useAppSelector');
+    spy.mockReturnValue(state);
+
+    render(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/login']}>
+          <LocationDisplay />
+          <Login />
+          <Toaster />
+        </MemoryRouter>
+      </Provider>
+    );
+
+    const errorToast = screen.getByText(state.error);
+    console.log(errorToast);
+  }); */
 })

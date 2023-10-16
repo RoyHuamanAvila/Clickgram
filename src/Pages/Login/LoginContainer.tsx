@@ -16,14 +16,8 @@ const initialValues: LoginAuthDto = {
 const LoginContainer = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate()
-  const { isAuthenticated } = useAppSelector((state) => state.application);
+  const { isAuthenticated, status } = useAppSelector((state) => state.application);
 
-  const handleLogin = async (userObject: LoginAuthDto) => {
-    await dispatch(axiosLogin(userObject)).then((fulfilled) => {
-      const userId = fulfilled.payload.user._id;
-      dispatch(axiosGetUser(userId));
-    });
-  }
 
   const formik = useFormik({
     initialValues,
@@ -33,9 +27,21 @@ const LoginContainer = () => {
     validationSchema: Yup.object({
       email: Yup.string().email('Ingresa un email válido').required('Ingresa tu email'),
       password: Yup.string().required('Ingresa una contraseña'),
-    })
+    }), initialStatus: status
   })
 
+  const handleLogin = async (userObject: LoginAuthDto) => {
+    formik.setStatus('pending')
+    await dispatch(axiosLogin(userObject)).then((fulfilled) => {
+      if (fulfilled.payload.user) {
+        const userId = fulfilled.payload.user._id;
+        dispatch(axiosGetUser(userId));
+      }
+    }).catch(() => {
+      formik.setStatus('idle')
+    })
+    formik.setStatus('idle')
+  }
   useEffect(() => {
     if (isAuthenticated) {
       navigate('/')
