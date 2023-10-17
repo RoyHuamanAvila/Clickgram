@@ -1,10 +1,13 @@
 import './AccountWidget.scss';
 import { UserPicture } from '../UserPicture';
-import { useAppSelector } from '../../hooks';
+import { FC } from 'react';
+import { UserLogged } from '../../interfaces';
 
-const AccountWidget = () => {
-	const user = useAppSelector(state => state.user.data);
+interface AccountWidgetViewProps {
+	user: UserLogged;
+}
 
+const AccountWidgetView: FC<AccountWidgetViewProps> = ({ user }) => {
 	return (
 		<div className='AccountWidget'>
 			<div className="AccountWidget-ownerinfo">
@@ -19,4 +22,4 @@ const AccountWidget = () => {
 	);
 };
 
-export default AccountWidget;
+export default AccountWidgetView;

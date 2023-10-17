@@ -1,24 +1,22 @@
 import { cleanup, render, screen } from '@testing-library/react';
-import AccountWidget from './AccountWidget';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import AccountWidget from './AccountWidgetContainer';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { BrowserRouter } from 'react-router-dom';
 import * as hooks from '../../hooks';
 
 describe('AccountWidget', () => {
-  const user = {
-    username: 'Furio',
-    fullname: 'Roy Andres',
-    picture: 'https://test.com/image.jpg'
-  }
-
   afterEach(cleanup)
 
-  beforeEach(() => {
+  it('should render user information', () => {
+    const user = {
+      username: 'Furio',
+      fullname: 'Roy Andres',
+      picture: 'https://test.com/image.jpg'
+    }
+
     const spy = vi.spyOn(hooks, 'useAppSelector');
     spy.mockReturnValue(user);
-  })
 
-  it('should render user information', () => {
     render(
       <AccountWidget />, { wrapper: BrowserRouter }
     );
@@ -34,5 +32,16 @@ describe('AccountWidget', () => {
     );
 
     expect(screen.getByRole('button', { name: 'Cambiar' })).toBeInTheDocument();
+  });
+
+  it('should render placeholder if user is not found', () => {
+    const spy = vi.spyOn(hooks, 'useAppSelector');
+    spy.mockReturnValue(null);
+
+    render(
+      <AccountWidget />, { wrapper: BrowserRouter }
+    );
+
+    expect(screen.getByRole('status')).toBeInTheDocument();
   });
 });

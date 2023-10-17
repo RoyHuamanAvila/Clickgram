@@ -24,8 +24,9 @@
   color: colors.$primary;
 }
 
-.ownerinfo-names {
+.ownerinfo-names.placeholder-container {
   line-height: 1.2rem;
+  font-size: 0.75rem;
 }
 
 .ownerinfo-username {
@@ -38,4 +39,21 @@
   color: colors.$gray;
   font-size: 14px;
   margin: 0;
+}
+
+.ownerinfo-username.placeholder {
+  color: colors.$dark;
+  font-weight: 600;
+  margin: 0;
+  min-width: 150px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.ownerinfo-fullname.placeholder {
+  color: colors.$gray;
+  font-size: 14px;
+  min-width: 120px;
+  margin: 0;
+  display: block;
 }

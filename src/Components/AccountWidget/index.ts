@@ -1,1 +1,1 @@
-export { default as AccountWidget } from './AccountWidget';
+export { default as AccountWidget } from "./AccountWidgetContainer";
