@@ -29,7 +29,13 @@ export const NavbarContainer: React.FC<NavbarContainerProps> = () => {
 					<i className="bi bi-plus-square"></i> <span>Create</span>
 				</button>
 				<NavbarItem label='Perfil' toPath={`/${username}`}>
-					<img src={picture} alt="User photo" />
+					{
+						picture ?
+							<img src={picture} alt="User photo" /> :
+							<div className="placeholder-glow">
+								<div className='picture-placeholder placeholder' role='status'></div>
+							</div>
+					}
 				</NavbarItem>
 			</div>
 			<button className="navbar-item" onClick={handleSignOff}>
