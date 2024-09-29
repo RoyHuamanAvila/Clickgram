@@ -28,22 +28,37 @@ Estoy construyendo Clickgram utilizando un conjunto de tecnologías modernas:
 
 
 ## 🛠️ Abre y ejecuta el proyecto
-1. Clonar repositorio
+1. Clonar repositorio.
+  * Repositorio del Front
 
-```
-git clone https://github.com/RoyHuamanAvila/Clickgram.git
-```
+    ```
+    git clone https://github.com/RoyHuamanAvila/Clickgram.git
+    ```
 
-2. Navegar a la carpeta del proyecto
+  * Repositorio del Back
+    ```
+    git clone https://github.com/RoyHuamanAvila/Clickgram-Server.git
+    ```
+    
+
+2. Navegar a la carpeta del proyecto.
 
 ```
 cd clickgram
 ```
 
-3. Abrir con Visual Studio Code
+3. Instala las dependencias del proyecto.
+```
+npm install
+```
+
+4. Abrir con Visual Studio Code.
 
 ```
 code .
 ```
 
-   
+5. Puedes probar los test hechos con VITEST.
+```
+npm run test
+```
